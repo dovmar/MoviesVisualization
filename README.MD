@@ -33,7 +33,7 @@ Original data source: [The numbers](https://www.the-numbers.com/).
 - hrbrthemes
 - here
 - ggrepel
-- pathwork
+- patchwork
 - rmdformats
 
 ## Results
