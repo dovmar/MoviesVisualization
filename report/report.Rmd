@@ -5,20 +5,38 @@ output:
     highlight: default
     code_folding: hide
     self_contained: False
+    md_extensions: "+emoji"
 ---
 
 
-```{r setup, include=FALSE}
+```{r setup, include=FALSE, dev="ragg_png"}
 library(knitr)
+library(ragg)
 options(max.print="75")
-opts_chunk$set(
+opts_chunk$set(dev="ragg_png",
                message=FALSE,
                warning=FALSE)
 opts_knit$set(width=75)
 ```
 
 
-# Data
+# Data :floppy_disk:
+
+
+Source:  [Tidy tuesday](https://github.com/rfordatascience/tidytuesday/tree/master/data/2018/2018-10-23).  
+Original data source: [The numbers](https://www.the-numbers.com/).
+
+
+<!-- -->
+
+    Main data about movies such as:
+    • Title
+    • Production budget
+    • Worldwide gross
+    • Domestic gross
+    • Genre
+    • MPAA rating
+
 
 ```{r}
 library(here)
@@ -29,9 +47,11 @@ data<- read_and_save_data(here("data/raw/movie_profit.csv"),here("data/clean/mov
 ```
 
 
-# Plots
+# Plots :bar_chart:
 
-## Age ratings and genres
+## Age ratings and genres :baby:
+
+Relationship between movie genres and their MPAA ratings is visualised first.
 
 ```{r}
 source(here("scripts/plots_small.R"))
@@ -54,9 +74,9 @@ plot_6(data)
 plot_3(data)
 ```
 
-## Budgets and profit
-
-
+## Budgets and profit :moneybag:
+ 
+In addition to genres/MPAA ratings, trends in movie gross and return on investment are visualised.
 ```{r}
 plot_2(data)
 ```
@@ -70,8 +90,10 @@ plot_4(data)
 plot_5(data)
 ```
 
+# 80s deep dive :eight::zero:
 
-```{r}
+The data is filtered to only include movies released in the 80s and additional analysis is done. For this deep dive budget and gross figures are adjusted for inflation :chart_with_upwards_trend:.
+```{r results='hide'}
 library(priceR)
 data2 <- data %>%
   mutate(
@@ -84,11 +106,14 @@ saveRDS(data2,here("data/clean/movie_profit_adjusted_for_inflation.RDS"))
 
 source(here("scripts/plots_panel.R"))
 ```
-# 80s deep dive
 
 ## One-by-one {.tabset}
 
+The plots for the deep dive are created individually.
+
 ### 1.
+
+A small donut chart that shows the total gross by genre of the movie.
 
 ```{r}
 p1 <- panel_1(data2)
@@ -97,12 +122,16 @@ p1
 
 ### 2.
 
+A small bar chart to highlight the movies with the highest budget.
+
 ```{r}
 p2 <- panel_2(data2)
 p2
 ```
 
 ### 3.
+
+"Big" chart showcasing the highest grossing movies.
 
 ```{r}
 p3 <- panel_3(data2)
@@ -111,14 +140,19 @@ p3
 
 ### 4.
 
+Another "big" chart showcasing movies with high budgets.
+
 ```{r}
+library(svglite)
 p4 <- panel_4(data2)
 p4
 ```
 
 ## Putting it into an infographic
 
-```{r fig.width=17,fig.height=12}
+After creating the individual plots, they are put together into an inforgraphic.
+
+```{r fig.width = 17, fig.height = 12}
 library(patchwork)
 a <- "AAAAACC
 AAAAACC
@@ -127,13 +161,21 @@ AAAAACC
 BBBBBDD
 BBBBBDD
 BBBBBDD"
+
 p3 + p4 + p1 + p2 + plot_layout(design = a) +
-  plot_annotation(title = "80s movies", theme = theme(plot.title = element_text(size = 32, family = "Roboto Condensed")))
+  plot_annotation(title = paste("80s movies",emo::ji("popcorn")),theme = theme(plot.title = element_text(size = 32, family = "Roboto Condensed")))
 ```
 
 
+# To do :thinking:
 
-# Code
+- Compare movie production companies
+(which ones make the biggest return on investment, which ones create the biggest blockbusters)
+- Find which movies are sequels (do sequels make more money? what kind of movies even get sequels?)
+- Find biggest box office flops
+- Another deep dive?
+
+# Code :clipboard:
 
 ```{r, code=readLines(here("scripts/plots_small.R")), eval=FALSE}
 
@@ -144,7 +186,7 @@ p3 + p4 + p1 + p2 + plot_layout(design = a) +
 ```
 
 
-# Session info
+# Session info :information_source:
 
 ```{r}
 devtools::session_info()

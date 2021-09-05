@@ -2,6 +2,7 @@
 
 
 library(ggrepel)
+library(vapoRwave)
 
 
 panel_1 <- function(data) {
@@ -24,7 +25,7 @@ panel_1 <- function(data) {
     geom_bar(stat = "identity", width = 1.2) +
     scale_y_continuous(limits = c(0,NA), expand = expansion(0,0)) +
     xlim(-0.9, 2.2) +
-    scale_fill_viridis_d("") +
+    scale_fill_vapoRwave("") +
     theme_void(base_size = 20, base_family = "Roboto Condensed") +
     coord_polar(theta = "y") +
     guides(label = "none") +
@@ -57,7 +58,7 @@ panel_2 <- function(data) {
   p2 <- ggplot(top3, aes(movie, production_budget, fill = genre)) +
     geom_bar(stat = "identity", alpha = 1) +
     theme_minimal(base_size = 20, base_family = "Roboto Condensed") +
-    scale_fill_viridis_d(drop = FALSE) +
+    scale_fill_vapoRwave(drop = FALSE) +
     guides(fill = "none", color = "none") +
     labs(x = "", y = "", title = "Movies with the highest budget") +
     scale_y_continuous(
@@ -78,7 +79,7 @@ panel_3 <- function(data) {
   p3 <- ggplot(data, aes(release_date, worldwide_gross, color = genre, size = worldwide_gross, alpha = worldwide_gross)) +
     geom_point() +
     theme_minimal(base_size = 20, base_family = "Roboto Condensed") +
-    scale_color_viridis_d("", direction = 1) +
+    scale_color_vapoRwave("") +
     theme(legend.position = "none", panel.grid.major = element_blank(), plot.margin = margin(t = 0, 5.5, b = 0, 5.5)) +
     annotate(
       geom = "rect", xmin = as.Date("1980-01-01"), xmax = as.Date("1990-01-01"),
@@ -108,7 +109,7 @@ panel_4 <- function(data) {
     geom_point() +
     theme_minimal(base_size = 20, base_family = "Roboto Condensed") +
     guides(alpha = "none", size = "none") +
-    scale_color_viridis_d("", direction = 1, guide = guide_legend(
+    scale_color_vapoRwave("", guide = guide_legend(
       keyheight = unit(7, units = "mm"),
       keywidth = unit(15, units = "mm"),
       label.position = "bottom", title.position = "top",

@@ -189,19 +189,20 @@
         </ul>
         <nav role="navigation" id="toc">
           <ul>
-          <li><a href="#data">Data</a></li>
-          <li><a href="#plots">Plots</a>
+          <li><a href="#data">Data <span class="emoji" data-emoji="floppy_disk">💾</span></a></li>
+          <li><a href="#plots">Plots <span class="emoji" data-emoji="bar_chart">📊</span></a>
           <ul>
-          <li><a href="#age-ratings-and-genres">Age ratings and genres</a></li>
-          <li><a href="#budgets-and-profit">Budgets and profit</a></li>
+          <li><a href="#age-ratings-and-genres">Age ratings and genres <span class="emoji" data-emoji="baby">👶</span></a></li>
+          <li><a href="#budgets-and-profit">Budgets and profit <span class="emoji" data-emoji="moneybag">💰</span></a></li>
           </ul></li>
-          <li><a href="#s-deep-dive">80s deep dive</a>
+          <li><a href="#s-deep-dive-80">80s deep dive <span class="emoji" data-emoji="eight">8️⃣</span><span class="emoji" data-emoji="zero">0️⃣</span></a>
           <ul>
           <li><a href="#one-by-one">One-by-one</a></li>
           <li><a href="#putting-it-into-an-infographic">Putting it into an infographic</a></li>
           </ul></li>
-          <li><a href="#code">Code</a></li>
-          <li><a href="#session-info">Session info</a></li>
+          <li><a href="#to-do">To do <span class="emoji" data-emoji="thinking">🤔</span></a></li>
+          <li><a href="#code">Code <span class="emoji" data-emoji="clipboard">📋</span></a></li>
+          <li><a href="#session-info-ℹ">Session info <span class="emoji" data-emoji="information_source">ℹ️</span></a></li>
           </ul>
         </nav>
         <ul class="authors">
@@ -234,406 +235,432 @@
    
 <!-- Don't indent these lines or it will mess pre blocks indentation --> 
 <div id="data" class="section level1">
-<h1>Data</h1>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(here)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="fu">here</span>(<span class="st">&quot;scripts/read_data.R&quot;</span>))</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>data<span class="ot">&lt;-</span> <span class="fu">read_and_save_data</span>(<span class="fu">here</span>(<span class="st">&quot;data/raw/movie_profit.csv&quot;</span>),<span class="fu">here</span>(<span class="st">&quot;data/clean/movie_profit.RDS&quot;</span>))</span></code></pre></div>
+<h1>Data <span class="emoji" data-emoji="floppy_disk">💾</span></h1>
+<p>Source: <a href="https://github.com/rfordatascience/tidytuesday/tree/master/data/2018/2018-10-23">Tidy tuesday</a>.<br />
+Original data source: <a href="https://www.the-numbers.com/">The numbers</a>.</p>
+<!-- -->
+<pre><code>Main data about movies such as:
+• Title
+• Production budget
+• Worldwide gross
+• Domestic gross
+• Genre
+• MPAA rating</code></pre>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(here)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="fu">here</span>(<span class="st">&quot;scripts/read_data.R&quot;</span>))</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>data<span class="ot">&lt;-</span> <span class="fu">read_and_save_data</span>(<span class="fu">here</span>(<span class="st">&quot;data/raw/movie_profit.csv&quot;</span>),<span class="fu">here</span>(<span class="st">&quot;data/clean/movie_profit.RDS&quot;</span>))</span></code></pre></div>
 </div>
 <div id="plots" class="section level1">
-<h1>Plots</h1>
+<h1>Plots <span class="emoji" data-emoji="bar_chart">📊</span></h1>
 <div id="age-ratings-and-genres" class="section level2">
-<h2>Age ratings and genres</h2>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="fu">here</span>(<span class="st">&quot;scripts/plots_small.R&quot;</span>))</span></code></pre></div>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_1</span>(data)</span></code></pre></div>
+<h2>Age ratings and genres <span class="emoji" data-emoji="baby">👶</span></h2>
+<p>Relationship between movie genres and their MPAA ratings is visualised first.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="fu">here</span>(<span class="st">&quot;scripts/plots_small.R&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_1</span>(data)</span></code></pre></div>
 <p><img src="report_files/figure-html/unnamed-chunk-3-1.png" width="768" /></p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_6</span>(data)</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_6</span>(data)</span></code></pre></div>
 <p><img src="report_files/figure-html/unnamed-chunk-4-1.png" width="768" /></p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_3</span>(data)</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_3</span>(data)</span></code></pre></div>
 <p><img src="report_files/figure-html/unnamed-chunk-5-1.png" width="768" /></p>
 </div>
 <div id="budgets-and-profit" class="section level2">
-<h2>Budgets and profit</h2>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_2</span>(data)</span></code></pre></div>
+<h2>Budgets and profit <span class="emoji" data-emoji="moneybag">💰</span></h2>
+<p>In addition to genres/MPAA ratings, trends in movie gross and return on investment are visualised.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_2</span>(data)</span></code></pre></div>
 <p><img src="report_files/figure-html/unnamed-chunk-6-1.png" width="768" /></p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_4</span>(data)</span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_4</span>(data)</span></code></pre></div>
 <p><img src="report_files/figure-html/unnamed-chunk-7-1.png" width="768" /></p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_5</span>(data)</span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_5</span>(data)</span></code></pre></div>
 <p><img src="report_files/figure-html/unnamed-chunk-8-1.png" width="768" /></p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(priceR)</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>data2 <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">production_budget =</span> <span class="fu">adjust_for_inflation</span>(production_budget, year, <span class="st">&quot;US&quot;</span>, <span class="at">to_date =</span> <span class="dv">2019</span>),</span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">worldwide_gross =</span> <span class="fu">adjust_for_inflation</span>(worldwide_gross, year, <span class="st">&quot;US&quot;</span>, <span class="at">to_date =</span> <span class="dv">2019</span>)</span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(year <span class="sc">%in%</span> <span class="dv">1980</span><span class="sc">:</span><span class="dv">1989</span>)</span></code></pre></div>
-<pre><code>## Generating URL to request all 299 results
-## Retrieving inflation data for US 
-## Generating URL to request all 61 results
-## Generating URL to request all 299 results
-## Retrieving inflation data for US 
-## Generating URL to request all 61 results</code></pre>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">saveRDS</span>(data2,<span class="fu">here</span>(<span class="st">&quot;data/clean/movie_profit_adjusted_for_inflation.RDS&quot;</span>))</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="fu">here</span>(<span class="st">&quot;scripts/plots_panel.R&quot;</span>))</span></code></pre></div>
 </div>
 </div>
-<div id="s-deep-dive" class="section level1">
-<h1>80s deep dive</h1>
+<div id="s-deep-dive-80" class="section level1">
+<h1>80s deep dive <span class="emoji" data-emoji="eight">8️⃣</span><span class="emoji" data-emoji="zero">0️⃣</span></h1>
+<p>The data is filtered to only include movies released in the 80s and additional analysis is done. For this deep dive budget and gross figures are adjusted for inflation <span class="emoji" data-emoji="chart_with_upwards_trend">📈</span>.</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(priceR)</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>data2 <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">production_budget =</span> <span class="fu">adjust_for_inflation</span>(production_budget, year, <span class="st">&quot;US&quot;</span>, <span class="at">to_date =</span> <span class="dv">2019</span>),</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">worldwide_gross =</span> <span class="fu">adjust_for_inflation</span>(worldwide_gross, year, <span class="st">&quot;US&quot;</span>, <span class="at">to_date =</span> <span class="dv">2019</span>)</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(year <span class="sc">%in%</span> <span class="dv">1980</span><span class="sc">:</span><span class="dv">1989</span>)</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a><span class="fu">saveRDS</span>(data2,<span class="fu">here</span>(<span class="st">&quot;data/clean/movie_profit_adjusted_for_inflation.RDS&quot;</span>))</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="fu">here</span>(<span class="st">&quot;scripts/plots_panel.R&quot;</span>))</span></code></pre></div>
 <div id="one-by-one" class="section level2 tabset">
 <h2 class="tabset">One-by-one</h2>
+<p>The plots for the deep dive are created individually.</p>
 <div id="section" class="section level3">
 <h3>1.</h3>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>p1 <span class="ot">&lt;-</span> <span class="fu">panel_1</span>(data2)</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>p1</span></code></pre></div>
+<p>A small donut chart that shows the total gross by genre of the movie.</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>p1 <span class="ot">&lt;-</span> <span class="fu">panel_1</span>(data2)</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>p1</span></code></pre></div>
 <p><img src="report_files/figure-html/unnamed-chunk-10-1.png" width="768" /></p>
 </div>
 <div id="section-1" class="section level3">
 <h3>2.</h3>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>p2 <span class="ot">&lt;-</span> <span class="fu">panel_2</span>(data2)</span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>p2</span></code></pre></div>
+<p>A small bar chart to highlight the movies with the highest budget.</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>p2 <span class="ot">&lt;-</span> <span class="fu">panel_2</span>(data2)</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>p2</span></code></pre></div>
 <p><img src="report_files/figure-html/unnamed-chunk-11-1.png" width="768" /></p>
 </div>
 <div id="section-2" class="section level3">
 <h3>3.</h3>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>p3 <span class="ot">&lt;-</span> <span class="fu">panel_3</span>(data2)</span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>p3</span></code></pre></div>
+<p>“Big” chart showcasing the highest grossing movies.</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>p3 <span class="ot">&lt;-</span> <span class="fu">panel_3</span>(data2)</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>p3</span></code></pre></div>
 <p><img src="report_files/figure-html/unnamed-chunk-12-1.png" width="768" /></p>
 </div>
 <div id="section-3" class="section level3">
 <h3>4.</h3>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>p4 <span class="ot">&lt;-</span> <span class="fu">panel_4</span>(data2)</span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>p4</span></code></pre></div>
+<p>Another “big” chart showcasing movies with high budgets.</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(svglite)</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>p4 <span class="ot">&lt;-</span> <span class="fu">panel_4</span>(data2)</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>p4</span></code></pre></div>
 <p><img src="report_files/figure-html/unnamed-chunk-13-1.png" width="768" /></p>
 </div>
 </div>
 <div id="putting-it-into-an-infographic" class="section level2">
 <h2>Putting it into an infographic</h2>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(patchwork)</span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="st">&quot;AAAAACC</span></span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="st">AAAAACC</span></span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="st">AAAAACC</span></span>
-<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="st">AAAAACC</span></span>
-<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a><span class="st">BBBBBDD</span></span>
-<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a><span class="st">BBBBBDD</span></span>
-<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a><span class="st">BBBBBDD&quot;</span></span>
-<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>p3 <span class="sc">+</span> p4 <span class="sc">+</span> p1 <span class="sc">+</span> p2 <span class="sc">+</span> <span class="fu">plot_layout</span>(<span class="at">design =</span> a) <span class="sc">+</span></span>
-<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">plot_annotation</span>(<span class="at">title =</span> <span class="st">&quot;80s movies&quot;</span>, <span class="at">theme =</span> <span class="fu">theme</span>(<span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">32</span>, <span class="at">family =</span> <span class="st">&quot;Roboto Condensed&quot;</span>)))</span></code></pre></div>
+<p>After creating the individual plots, they are put together into an inforgraphic.</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(patchwork)</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="st">&quot;AAAAACC</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="st">AAAAACC</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="st">AAAAACC</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="st">AAAAACC</span></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a><span class="st">BBBBBDD</span></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a><span class="st">BBBBBDD</span></span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a><span class="st">BBBBBDD&quot;</span></span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>p3 <span class="sc">+</span> p4 <span class="sc">+</span> p1 <span class="sc">+</span> p2 <span class="sc">+</span> <span class="fu">plot_layout</span>(<span class="at">design =</span> a) <span class="sc">+</span></span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">plot_annotation</span>(<span class="at">title =</span> <span class="fu">paste</span>(<span class="st">&quot;80s movies&quot;</span>,emo<span class="sc">::</span><span class="fu">ji</span>(<span class="st">&quot;popcorn&quot;</span>)),<span class="at">theme =</span> <span class="fu">theme</span>(<span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">32</span>, <span class="at">family =</span> <span class="st">&quot;Roboto Condensed&quot;</span>)))</span></code></pre></div>
 <p><img src="report_files/figure-html/unnamed-chunk-14-1.png" width="1632" /></p>
 </div>
 </div>
+<div id="to-do" class="section level1">
+<h1>To do <span class="emoji" data-emoji="thinking">🤔</span></h1>
+<ul>
+<li>Compare movie production companies (which ones make the biggest return on investment, which ones create the biggest blockbusters)</li>
+<li>Find which movies are sequels (do sequels make more money? what kind of movies even get sequels?)</li>
+<li>Find biggest box office flops</li>
+<li>Another deep dive?</li>
+</ul>
+</div>
 <div id="code" class="section level1">
-<h1>Code</h1>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># plots_small.R</span></span>
+<h1>Code <span class="emoji" data-emoji="clipboard">📋</span></h1>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># plots_small.R</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(hrbrthemes)</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggforce)</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>plot_1 <span class="ot">&lt;-</span> <span class="cf">function</span>(data) {</span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(</span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">drop_na</span>(data, mpaa_rating),</span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="fu">fct_reorder</span>(genre, mpaa_rating, <span class="cf">function</span>(x) <span class="fu">mean</span>(x <span class="sc">==</span> <span class="st">&quot;R&quot;</span>)),</span>
+<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a>      <span class="at">fill =</span> mpaa_rating</span>
+<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb16-16"><a href="#cb16-16" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="st">&quot;fill&quot;</span>, <span class="at">color =</span> <span class="cn">NA</span>) <span class="sc">+</span></span>
+<span id="cb16-17"><a href="#cb16-17" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_fill_viridis_d</span>(<span class="st">&quot;MPAA rating&quot;</span>, </span>
+<span id="cb16-18"><a href="#cb16-18" aria-hidden="true" tabindex="-1"></a>                         <span class="at">option =</span> <span class="st">&quot;E&quot;</span>,</span>
+<span id="cb16-19"><a href="#cb16-19" aria-hidden="true" tabindex="-1"></a>                         <span class="at">end=</span><span class="fl">0.9</span>,</span>
+<span id="cb16-20"><a href="#cb16-20" aria-hidden="true" tabindex="-1"></a>      <span class="at">guide =</span> <span class="fu">guide_legend</span>(</span>
+<span id="cb16-21"><a href="#cb16-21" aria-hidden="true" tabindex="-1"></a>        <span class="at">title.position =</span> <span class="st">&quot;top&quot;</span>,</span>
+<span id="cb16-22"><a href="#cb16-22" aria-hidden="true" tabindex="-1"></a>        <span class="at">direction =</span> <span class="st">&quot;horizontal&quot;</span>,</span>
+<span id="cb16-23"><a href="#cb16-23" aria-hidden="true" tabindex="-1"></a>        <span class="at">reverse =</span> <span class="cn">TRUE</span></span>
+<span id="cb16-24"><a href="#cb16-24" aria-hidden="true" tabindex="-1"></a>      )</span>
+<span id="cb16-25"><a href="#cb16-25" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">+</span></span>
+<span id="cb16-26"><a href="#cb16-26" aria-hidden="true" tabindex="-1"></a>    <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
+<span id="cb16-27"><a href="#cb16-27" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> scales<span class="sc">::</span><span class="fu">label_percent</span>()) <span class="sc">+</span></span>
+<span id="cb16-28"><a href="#cb16-28" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_ipsum</span>() <span class="sc">+</span></span>
+<span id="cb16-29"><a href="#cb16-29" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(</span>
+<span id="cb16-30"><a href="#cb16-30" aria-hidden="true" tabindex="-1"></a>      <span class="at">y =</span> <span class="st">&quot;Percentage of movies relased&quot;</span>,</span>
+<span id="cb16-31"><a href="#cb16-31" aria-hidden="true" tabindex="-1"></a>      <span class="at">x =</span> <span class="st">&quot;Genre&quot;</span>,</span>
+<span id="cb16-32"><a href="#cb16-32" aria-hidden="true" tabindex="-1"></a>      <span class="at">title =</span> <span class="st">&quot;Hollywood movies by MPAA rating and genre&quot;</span>,</span>
+<span id="cb16-33"><a href="#cb16-33" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">+</span></span>
+<span id="cb16-34"><a href="#cb16-34" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">&quot;bottom&quot;</span>)</span>
+<span id="cb16-35"><a href="#cb16-35" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb16-36"><a href="#cb16-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-37"><a href="#cb16-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-38"><a href="#cb16-38" aria-hidden="true" tabindex="-1"></a>plot_2 <span class="ot">&lt;-</span> <span class="cf">function</span>(data) {</span>
+<span id="cb16-39"><a href="#cb16-39" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb16-40"><a href="#cb16-40" aria-hidden="true" tabindex="-1"></a>  data <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span></span>
+<span id="cb16-41"><a href="#cb16-41" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(season,genre) <span class="sc">%&gt;%</span></span>
+<span id="cb16-42"><a href="#cb16-42" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarize</span>(<span class="at">ratio =</span> <span class="fu">mean</span>(ratio))</span>
+<span id="cb16-43"><a href="#cb16-43" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb16-44"><a href="#cb16-44" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> ratio, <span class="at">y =</span> <span class="fu">fct_rev</span>(season), <span class="at">color =</span> genre)) <span class="sc">+</span></span>
+<span id="cb16-45"><a href="#cb16-45" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">8</span>) <span class="sc">+</span></span>
+<span id="cb16-46"><a href="#cb16-46" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_ipsum</span>() <span class="sc">+</span></span>
+<span id="cb16-47"><a href="#cb16-47" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb16-48"><a href="#cb16-48" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_color_viridis_d</span>(<span class="st">&quot;Genre&quot;</span>,</span>
+<span id="cb16-49"><a href="#cb16-49" aria-hidden="true" tabindex="-1"></a>      <span class="at">guide =</span> <span class="fu">guide_legend</span>(<span class="at">direction =</span> <span class="st">&quot;horizontal&quot;</span>)</span>
+<span id="cb16-50"><a href="#cb16-50" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">+</span></span>
+<span id="cb16-51"><a href="#cb16-51" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(</span>
+<span id="cb16-52"><a href="#cb16-52" aria-hidden="true" tabindex="-1"></a>      <span class="at">x =</span> <span class="st">&quot;Worldwide gross/Budget&quot;</span>,</span>
+<span id="cb16-53"><a href="#cb16-53" aria-hidden="true" tabindex="-1"></a>      <span class="at">y =</span> <span class="st">&quot;Season&quot;</span>,</span>
+<span id="cb16-54"><a href="#cb16-54" aria-hidden="true" tabindex="-1"></a>      <span class="at">title =</span> <span class="st">&quot;Return on investment of movies by season&quot;</span>,</span>
+<span id="cb16-55"><a href="#cb16-55" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">+</span></span>
+<span id="cb16-56"><a href="#cb16-56" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">5</span>, <span class="dv">10</span>), <span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="cn">NA</span>)) <span class="sc">+</span></span>
+<span id="cb16-57"><a href="#cb16-57" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">&quot;bottom&quot;</span>)</span>
+<span id="cb16-58"><a href="#cb16-58" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb16-59"><a href="#cb16-59" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-60"><a href="#cb16-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-61"><a href="#cb16-61" aria-hidden="true" tabindex="-1"></a>plot_3 <span class="ot">&lt;-</span> <span class="cf">function</span>(data) {</span>
+<span id="cb16-62"><a href="#cb16-62" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb16-63"><a href="#cb16-63" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">y =</span> <span class="fu">fct_rev</span>(<span class="fu">fct_infreq</span>(genre)), <span class="at">x =</span> season)) <span class="sc">+</span></span>
+<span id="cb16-64"><a href="#cb16-64" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_bin2d</span>() <span class="sc">+</span></span>
+<span id="cb16-65"><a href="#cb16-65" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_fill_viridis_c</span>(<span class="st">&quot;Number of movies&quot;</span>,</span>
+<span id="cb16-66"><a href="#cb16-66" aria-hidden="true" tabindex="-1"></a>      <span class="at">guide =</span> <span class="fu">guide_legend</span>(<span class="at">reverse =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb16-67"><a href="#cb16-67" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">+</span></span>
+<span id="cb16-68"><a href="#cb16-68" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_ipsum</span>() <span class="sc">+</span></span>
+<span id="cb16-69"><a href="#cb16-69" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(</span>
+<span id="cb16-70"><a href="#cb16-70" aria-hidden="true" tabindex="-1"></a>      <span class="at">x =</span> <span class="st">&quot;Season&quot;</span>,</span>
+<span id="cb16-71"><a href="#cb16-71" aria-hidden="true" tabindex="-1"></a>      <span class="at">y =</span> <span class="st">&quot;Genre&quot;</span>,</span>
+<span id="cb16-72"><a href="#cb16-72" aria-hidden="true" tabindex="-1"></a>      <span class="at">title =</span> <span class="st">&quot;Number of movies by season and genre&quot;</span></span>
+<span id="cb16-73"><a href="#cb16-73" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb16-74"><a href="#cb16-74" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb16-75"><a href="#cb16-75" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-76"><a href="#cb16-76" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-77"><a href="#cb16-77" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-78"><a href="#cb16-78" aria-hidden="true" tabindex="-1"></a>plot_4 <span class="ot">&lt;-</span> <span class="cf">function</span>(data) {</span>
+<span id="cb16-79"><a href="#cb16-79" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb16-80"><a href="#cb16-80" aria-hidden="true" tabindex="-1"></a>  data <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span></span>
+<span id="cb16-81"><a href="#cb16-81" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(decade) <span class="sc">%&gt;%</span></span>
+<span id="cb16-82"><a href="#cb16-82" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarize</span>(<span class="at">ratio =</span> <span class="fu">mean</span>(domestic_gross <span class="sc">/</span> worldwide_gross, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb16-83"><a href="#cb16-83" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-84"><a href="#cb16-84" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-85"><a href="#cb16-85" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(data, <span class="fu">aes</span>(decade, ratio)) <span class="sc">+</span></span>
+<span id="cb16-86"><a href="#cb16-86" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">8</span>, <span class="at">color =</span> <span class="st">&quot;skyblue&quot;</span>) <span class="sc">+</span></span>
+<span id="cb16-87"><a href="#cb16-87" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_ipsum</span>() <span class="sc">+</span></span>
+<span id="cb16-88"><a href="#cb16-88" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="fl">0.5</span>, <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb16-89"><a href="#cb16-89" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(</span>
+<span id="cb16-90"><a href="#cb16-90" aria-hidden="true" tabindex="-1"></a>      <span class="at">x =</span> <span class="st">&quot;Decade&quot;</span>,</span>
+<span id="cb16-91"><a href="#cb16-91" aria-hidden="true" tabindex="-1"></a>      <span class="at">y =</span> <span class="st">&quot;Domestic gross percentage of the total&quot;</span>,</span>
+<span id="cb16-92"><a href="#cb16-92" aria-hidden="true" tabindex="-1"></a>      <span class="at">title =</span> <span class="st">&quot;Domestic and worldwide gross compared&quot;</span></span>
+<span id="cb16-93"><a href="#cb16-93" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">+</span></span>
+<span id="cb16-94"><a href="#cb16-94" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_y_continuous</span>(</span>
+<span id="cb16-95"><a href="#cb16-95" aria-hidden="true" tabindex="-1"></a>      <span class="at">labels =</span> scales<span class="sc">::</span><span class="fu">label_percent</span>(),</span>
+<span id="cb16-96"><a href="#cb16-96" aria-hidden="true" tabindex="-1"></a>      <span class="at">limits =</span> <span class="fu">c</span>(<span class="fl">0.4</span>, <span class="dv">1</span>),</span>
+<span id="cb16-97"><a href="#cb16-97" aria-hidden="true" tabindex="-1"></a>      <span class="at">breaks =</span> <span class="fu">c</span>(<span class="fl">0.5</span>, <span class="fl">0.75</span>, <span class="dv">1</span>)</span>
+<span id="cb16-98"><a href="#cb16-98" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb16-99"><a href="#cb16-99" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb16-100"><a href="#cb16-100" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-101"><a href="#cb16-101" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-102"><a href="#cb16-102" aria-hidden="true" tabindex="-1"></a>plot_5 <span class="ot">&lt;-</span> <span class="cf">function</span>(data) {</span>
+<span id="cb16-103"><a href="#cb16-103" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb16-104"><a href="#cb16-104" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">data =</span> <span class="fu">subset</span>(data, ratio <span class="sc">&lt;</span> <span class="dv">150</span>), <span class="fu">aes</span>(year, ratio)) <span class="sc">+</span></span>
+<span id="cb16-105"><a href="#cb16-105" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_jitter</span>(<span class="at">alpha =</span> <span class="fl">0.7</span>, <span class="at">color =</span> <span class="st">&quot;grey&quot;</span>) <span class="sc">+</span></span>
+<span id="cb16-106"><a href="#cb16-106" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_y_continuous</span>(<span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">100</span>, <span class="dv">200</span>, <span class="dv">300</span>, <span class="dv">400</span>), <span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">500</span>)) <span class="sc">+</span></span>
+<span id="cb16-107"><a href="#cb16-107" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_ipsum</span>() <span class="sc">+</span></span>
+<span id="cb16-108"><a href="#cb16-108" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_mark_ellipse</span>(</span>
+<span id="cb16-109"><a href="#cb16-109" aria-hidden="true" tabindex="-1"></a>      <span class="at">data =</span> <span class="fu">subset</span>(data, ratio <span class="sc">&gt;</span> <span class="dv">150</span>),</span>
+<span id="cb16-110"><a href="#cb16-110" aria-hidden="true" tabindex="-1"></a>      <span class="fu">aes</span>(</span>
+<span id="cb16-111"><a href="#cb16-111" aria-hidden="true" tabindex="-1"></a>        <span class="at">filter =</span> ratio <span class="sc">&gt;</span> <span class="dv">400</span>,</span>
+<span id="cb16-112"><a href="#cb16-112" aria-hidden="true" tabindex="-1"></a>        <span class="at">description =</span> <span class="st">&quot;The Blair Witch Project 1999 </span><span class="sc">\n</span><span class="st">Paranormal Activity 2007&quot;</span></span>
+<span id="cb16-113"><a href="#cb16-113" aria-hidden="true" tabindex="-1"></a>      ),</span>
+<span id="cb16-114"><a href="#cb16-114" aria-hidden="true" tabindex="-1"></a>      <span class="at">label.fill =</span> <span class="cn">NA</span>,</span>
+<span id="cb16-115"><a href="#cb16-115" aria-hidden="true" tabindex="-1"></a>      <span class="at">con.type =</span> <span class="st">&quot;straight&quot;</span>,</span>
+<span id="cb16-116"><a href="#cb16-116" aria-hidden="true" tabindex="-1"></a>      <span class="at">label.family =</span> <span class="st">&quot;Arial Narrow&quot;</span>,</span>
+<span id="cb16-117"><a href="#cb16-117" aria-hidden="true" tabindex="-1"></a>      <span class="at">label.fontsize =</span> <span class="dv">11</span></span>
+<span id="cb16-118"><a href="#cb16-118" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">+</span></span>
+<span id="cb16-119"><a href="#cb16-119" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_jitter</span>(</span>
+<span id="cb16-120"><a href="#cb16-120" aria-hidden="true" tabindex="-1"></a>      <span class="at">data =</span> <span class="fu">subset</span>(data, ratio <span class="sc">&gt;</span> <span class="dv">150</span>),</span>
+<span id="cb16-121"><a href="#cb16-121" aria-hidden="true" tabindex="-1"></a>      <span class="fu">aes</span>(year, ratio, <span class="at">color =</span> genre),</span>
+<span id="cb16-122"><a href="#cb16-122" aria-hidden="true" tabindex="-1"></a>      <span class="at">size =</span> <span class="dv">3</span></span>
+<span id="cb16-123"><a href="#cb16-123" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">+</span></span>
+<span id="cb16-124"><a href="#cb16-124" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_color_viridis_d</span>(<span class="st">&quot;Genre&quot;</span>,<span class="at">limits =</span> <span class="fu">unique</span>(data<span class="sc">$</span>genre),</span>
+<span id="cb16-125"><a href="#cb16-125" aria-hidden="true" tabindex="-1"></a>                          <span class="at">breaks =</span> <span class="fu">unique</span>(<span class="fu">subset</span>(data, ratio<span class="sc">&gt;</span><span class="dv">150</span>)<span class="sc">$</span>genre)) <span class="sc">+</span></span>
+<span id="cb16-126"><a href="#cb16-126" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_mark_ellipse</span>(</span>
+<span id="cb16-127"><a href="#cb16-127" aria-hidden="true" tabindex="-1"></a>      <span class="at">data =</span> <span class="fu">subset</span>(data, ratio <span class="sc">&gt;</span> <span class="dv">150</span>),</span>
+<span id="cb16-128"><a href="#cb16-128" aria-hidden="true" tabindex="-1"></a>      <span class="fu">aes</span>(</span>
+<span id="cb16-129"><a href="#cb16-129" aria-hidden="true" tabindex="-1"></a>        <span class="at">filter =</span> ratio <span class="sc">&gt;</span> <span class="dv">180</span> <span class="sc">&amp;</span> ratio <span class="sc">&lt;</span> <span class="dv">400</span>,</span>
+<span id="cb16-130"><a href="#cb16-130" aria-hidden="true" tabindex="-1"></a>        <span class="at">description =</span> <span class="st">&quot;American Graffitti 1973</span><span class="sc">\n</span><span class="st">Rocky 1976</span><span class="sc">\n</span><span class="st">Halloween 1978&quot;</span></span>
+<span id="cb16-131"><a href="#cb16-131" aria-hidden="true" tabindex="-1"></a>      ),</span>
+<span id="cb16-132"><a href="#cb16-132" aria-hidden="true" tabindex="-1"></a>      <span class="at">con.type =</span> <span class="st">&quot;straight&quot;</span>,</span>
+<span id="cb16-133"><a href="#cb16-133" aria-hidden="true" tabindex="-1"></a>      <span class="at">label.fill =</span> <span class="cn">NA</span>,</span>
+<span id="cb16-134"><a href="#cb16-134" aria-hidden="true" tabindex="-1"></a>      <span class="at">label.family =</span> <span class="st">&quot;Arial Narrow&quot;</span>,</span>
+<span id="cb16-135"><a href="#cb16-135" aria-hidden="true" tabindex="-1"></a>      <span class="at">label.fontsize =</span> <span class="dv">11</span></span>
+<span id="cb16-136"><a href="#cb16-136" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">+</span></span>
+<span id="cb16-137"><a href="#cb16-137" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(</span>
+<span id="cb16-138"><a href="#cb16-138" aria-hidden="true" tabindex="-1"></a>      <span class="at">x =</span> <span class="st">&quot;Year&quot;</span>,</span>
+<span id="cb16-139"><a href="#cb16-139" aria-hidden="true" tabindex="-1"></a>      <span class="at">y =</span> <span class="st">&quot;Worldwide Gross / Budget&quot;</span>,</span>
+<span id="cb16-140"><a href="#cb16-140" aria-hidden="true" tabindex="-1"></a>      <span class="at">title =</span> <span class="st">&quot;Most profitable movies&quot;</span></span>
+<span id="cb16-141"><a href="#cb16-141" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb16-142"><a href="#cb16-142" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb16-143"><a href="#cb16-143" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-144"><a href="#cb16-144" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-145"><a href="#cb16-145" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-146"><a href="#cb16-146" aria-hidden="true" tabindex="-1"></a>plot_6 <span class="ot">&lt;-</span> <span class="cf">function</span>(data) {</span>
+<span id="cb16-147"><a href="#cb16-147" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb16-148"><a href="#cb16-148" aria-hidden="true" tabindex="-1"></a>  data <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span></span>
+<span id="cb16-149"><a href="#cb16-149" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(mpaa_rating, genre) <span class="sc">%&gt;%</span></span>
+<span id="cb16-150"><a href="#cb16-150" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarise</span>(<span class="at">count =</span> <span class="fu">n</span>()) <span class="sc">%&gt;%</span></span>
+<span id="cb16-151"><a href="#cb16-151" aria-hidden="true" tabindex="-1"></a>    <span class="fu">gather_set_data</span>(<span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb16-152"><a href="#cb16-152" aria-hidden="true" tabindex="-1"></a>    <span class="fu">drop_na</span>()</span>
+<span id="cb16-153"><a href="#cb16-153" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-154"><a href="#cb16-154" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-155"><a href="#cb16-155" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(data, <span class="fu">aes</span>(x, <span class="at">id =</span> id, <span class="at">split =</span> y, <span class="at">value =</span> count)) <span class="sc">+</span></span>
+<span id="cb16-156"><a href="#cb16-156" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_parallel_sets</span>(<span class="fu">aes</span>(<span class="at">fill =</span> mpaa_rating),</span>
+<span id="cb16-157"><a href="#cb16-157" aria-hidden="true" tabindex="-1"></a>      <span class="at">strength =</span> <span class="fl">0.5</span>,</span>
+<span id="cb16-158"><a href="#cb16-158" aria-hidden="true" tabindex="-1"></a>      <span class="at">axis.width =</span> <span class="fl">0.32</span>,</span>
+<span id="cb16-159"><a href="#cb16-159" aria-hidden="true" tabindex="-1"></a>      <span class="at">alpha =</span> <span class="fl">0.9</span>,</span>
+<span id="cb16-160"><a href="#cb16-160" aria-hidden="true" tabindex="-1"></a>      <span class="at">color =</span> <span class="st">&quot;grey50&quot;</span></span>
+<span id="cb16-161"><a href="#cb16-161" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">+</span></span>
+<span id="cb16-162"><a href="#cb16-162" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_parallel_sets_axes</span>() <span class="sc">+</span></span>
+<span id="cb16-163"><a href="#cb16-163" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_parallel_sets_labels</span>(<span class="at">angle =</span> <span class="dv">0</span>) <span class="sc">+</span></span>
+<span id="cb16-164"><a href="#cb16-164" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_ipsum</span>() <span class="sc">+</span></span>
+<span id="cb16-165"><a href="#cb16-165" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_fill_viridis_d</span>(<span class="st">&quot;MPAA rating&quot;</span>,<span class="at">option=</span><span class="st">&quot;E&quot;</span>,<span class="at">end=</span><span class="fl">0.9</span>,</span>
+<span id="cb16-166"><a href="#cb16-166" aria-hidden="true" tabindex="-1"></a>      <span class="at">guide =</span> <span class="fu">guide_legend</span>(<span class="at">direction =</span> <span class="st">&quot;vertical&quot;</span>)</span>
+<span id="cb16-167"><a href="#cb16-167" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">+</span></span>
+<span id="cb16-168"><a href="#cb16-168" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(</span>
+<span id="cb16-169"><a href="#cb16-169" aria-hidden="true" tabindex="-1"></a>      <span class="at">panel.grid.major =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb16-170"><a href="#cb16-170" aria-hidden="true" tabindex="-1"></a>      <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>()</span>
+<span id="cb16-171"><a href="#cb16-171" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">+</span></span>
+<span id="cb16-172"><a href="#cb16-172" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_x_discrete</span>(<span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&quot;Genre&quot;</span>, <span class="st">&quot;MPAA rating&quot;</span>)) <span class="sc">+</span></span>
+<span id="cb16-173"><a href="#cb16-173" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(</span>
+<span id="cb16-174"><a href="#cb16-174" aria-hidden="true" tabindex="-1"></a>      <span class="at">title =</span> <span class="st">&quot;Hollywood movies by MPAA rating and genre&quot;</span></span>
+<span id="cb16-175"><a href="#cb16-175" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb16-176"><a href="#cb16-176" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># plots_panel.R</span></span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(hrbrthemes)</span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggforce)</span>
-<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggrepel)</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(vapoRwave)</span>
 <span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>plot_1 <span class="ot">&lt;-</span> <span class="cf">function</span>(data) {</span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>panel_1 <span class="ot">&lt;-</span> <span class="cf">function</span>(data) {</span>
 <span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(</span>
-<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">drop_na</span>(data, mpaa_rating),</span>
-<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="fu">fct_reorder</span>(genre, mpaa_rating, <span class="cf">function</span>(x) <span class="fu">mean</span>(x <span class="sc">==</span> <span class="st">&quot;R&quot;</span>)),</span>
-<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a>      <span class="at">fill =</span> mpaa_rating</span>
-<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb17-16"><a href="#cb17-16" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="st">&quot;fill&quot;</span>, <span class="at">color =</span> <span class="cn">NA</span>) <span class="sc">+</span></span>
-<span id="cb17-17"><a href="#cb17-17" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_fill_viridis_d</span>(<span class="st">&quot;MPAA rating&quot;</span>, </span>
-<span id="cb17-18"><a href="#cb17-18" aria-hidden="true" tabindex="-1"></a>                         <span class="at">option =</span> <span class="st">&quot;E&quot;</span>,</span>
-<span id="cb17-19"><a href="#cb17-19" aria-hidden="true" tabindex="-1"></a>                         <span class="at">end=</span><span class="fl">0.9</span>,</span>
-<span id="cb17-20"><a href="#cb17-20" aria-hidden="true" tabindex="-1"></a>      <span class="at">guide =</span> <span class="fu">guide_legend</span>(</span>
-<span id="cb17-21"><a href="#cb17-21" aria-hidden="true" tabindex="-1"></a>        <span class="at">title.position =</span> <span class="st">&quot;top&quot;</span>,</span>
-<span id="cb17-22"><a href="#cb17-22" aria-hidden="true" tabindex="-1"></a>        <span class="at">direction =</span> <span class="st">&quot;horizontal&quot;</span>,</span>
-<span id="cb17-23"><a href="#cb17-23" aria-hidden="true" tabindex="-1"></a>        <span class="at">reverse =</span> <span class="cn">TRUE</span></span>
-<span id="cb17-24"><a href="#cb17-24" aria-hidden="true" tabindex="-1"></a>      )</span>
-<span id="cb17-25"><a href="#cb17-25" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">+</span></span>
-<span id="cb17-26"><a href="#cb17-26" aria-hidden="true" tabindex="-1"></a>    <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
-<span id="cb17-27"><a href="#cb17-27" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> scales<span class="sc">::</span><span class="fu">label_percent</span>()) <span class="sc">+</span></span>
-<span id="cb17-28"><a href="#cb17-28" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_ipsum</span>() <span class="sc">+</span></span>
-<span id="cb17-29"><a href="#cb17-29" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(</span>
-<span id="cb17-30"><a href="#cb17-30" aria-hidden="true" tabindex="-1"></a>      <span class="at">y =</span> <span class="st">&quot;Percentage of movies relased&quot;</span>,</span>
-<span id="cb17-31"><a href="#cb17-31" aria-hidden="true" tabindex="-1"></a>      <span class="at">x =</span> <span class="st">&quot;Genre&quot;</span>,</span>
-<span id="cb17-32"><a href="#cb17-32" aria-hidden="true" tabindex="-1"></a>      <span class="at">title =</span> <span class="st">&quot;Hollywood movies by MPAA rating and genre&quot;</span>,</span>
-<span id="cb17-33"><a href="#cb17-33" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">+</span></span>
-<span id="cb17-34"><a href="#cb17-34" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">&quot;bottom&quot;</span>)</span>
-<span id="cb17-35"><a href="#cb17-35" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb17-36"><a href="#cb17-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>  data <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span></span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(genre) <span class="sc">%&gt;%</span></span>
+<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarize</span>(<span class="at">total =</span> <span class="fu">sum</span>(worldwide_gross)) <span class="sc">%&gt;%</span></span>
+<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">perc =</span> <span class="fu">round</span>(total <span class="sc">/</span> <span class="fu">sum</span>(total) <span class="sc">*</span> <span class="dv">100</span>, <span class="dv">0</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">label =</span> <span class="fu">paste0</span>(<span class="fu">round</span>(total <span class="sc">/</span> <span class="fu">sum</span>(total) <span class="sc">*</span> <span class="dv">100</span>, <span class="dv">0</span>), <span class="st">&quot;%&quot;</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb17-16"><a href="#cb17-16" aria-hidden="true" tabindex="-1"></a>    <span class="fu">arrange</span>(<span class="fu">desc</span>(genre))</span>
+<span id="cb17-17"><a href="#cb17-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-18"><a href="#cb17-18" aria-hidden="true" tabindex="-1"></a>  height <span class="ot">&lt;-</span> <span class="fu">cumsum</span>(data<span class="sc">$</span>perc) <span class="sc">-</span> <span class="dv">5</span></span>
+<span id="cb17-19"><a href="#cb17-19" aria-hidden="true" tabindex="-1"></a>  height[<span class="dv">1</span>] <span class="ot">&lt;-</span> height[<span class="dv">1</span>] <span class="sc">+</span> <span class="dv">5</span></span>
+<span id="cb17-20"><a href="#cb17-20" aria-hidden="true" tabindex="-1"></a>  height[<span class="dv">5</span>] <span class="ot">&lt;-</span> height[<span class="dv">5</span>] <span class="sc">-</span> <span class="dv">15</span></span>
+<span id="cb17-21"><a href="#cb17-21" aria-hidden="true" tabindex="-1"></a>  height[<span class="dv">4</span>] <span class="ot">&lt;-</span> height[<span class="dv">4</span>] <span class="sc">-</span> <span class="dv">5</span></span>
+<span id="cb17-22"><a href="#cb17-22" aria-hidden="true" tabindex="-1"></a>  df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x =</span> <span class="fl">2.5</span>, <span class="at">y =</span> height, <span class="at">label =</span> data<span class="sc">$</span>label, <span class="at">perc =</span> data<span class="sc">$</span>perc)</span>
+<span id="cb17-23"><a href="#cb17-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-24"><a href="#cb17-24" aria-hidden="true" tabindex="-1"></a>  p1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="dv">1</span>, <span class="at">y =</span> perc, <span class="at">fill =</span> genre)) <span class="sc">+</span></span>
+<span id="cb17-25"><a href="#cb17-25" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">&quot;identity&quot;</span>, <span class="at">width =</span> <span class="fl">1.2</span>) <span class="sc">+</span></span>
+<span id="cb17-26"><a href="#cb17-26" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="cn">NA</span>), <span class="at">expand =</span> <span class="fu">expansion</span>(<span class="dv">0</span>,<span class="dv">0</span>)) <span class="sc">+</span></span>
+<span id="cb17-27"><a href="#cb17-27" aria-hidden="true" tabindex="-1"></a>    <span class="fu">xlim</span>(<span class="sc">-</span><span class="fl">0.9</span>, <span class="fl">2.2</span>) <span class="sc">+</span></span>
+<span id="cb17-28"><a href="#cb17-28" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_fill_vapoRwave</span>(<span class="st">&quot;&quot;</span>) <span class="sc">+</span></span>
+<span id="cb17-29"><a href="#cb17-29" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_void</span>(<span class="at">base_size =</span> <span class="dv">20</span>, <span class="at">base_family =</span> <span class="st">&quot;Roboto Condensed&quot;</span>) <span class="sc">+</span></span>
+<span id="cb17-30"><a href="#cb17-30" aria-hidden="true" tabindex="-1"></a>    <span class="fu">coord_polar</span>(<span class="at">theta =</span> <span class="st">&quot;y&quot;</span>) <span class="sc">+</span></span>
+<span id="cb17-31"><a href="#cb17-31" aria-hidden="true" tabindex="-1"></a>    <span class="fu">guides</span>(<span class="at">label =</span> <span class="st">&quot;none&quot;</span>) <span class="sc">+</span></span>
+<span id="cb17-32"><a href="#cb17-32" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Percentage of total gross by genre&quot;</span>) <span class="sc">+</span></span>
+<span id="cb17-33"><a href="#cb17-33" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">plot.margin =</span> <span class="fu">margin</span>(<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>), <span class="at">legend.position =</span> <span class="st">&quot;none&quot;</span>) <span class="sc">+</span></span>
+<span id="cb17-34"><a href="#cb17-34" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_text</span>(<span class="at">data =</span> df, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fl">2.2</span>, <span class="at">y =</span> height, <span class="at">label =</span> label), <span class="at">inherit.aes =</span> <span class="cn">FALSE</span>, <span class="at">color =</span> <span class="st">&quot;grey20&quot;</span>, <span class="at">size =</span> <span class="dv">6</span>)</span>
+<span id="cb17-35"><a href="#cb17-35" aria-hidden="true" tabindex="-1"></a>  p1</span>
+<span id="cb17-36"><a href="#cb17-36" aria-hidden="true" tabindex="-1"></a>}</span>
 <span id="cb17-37"><a href="#cb17-37" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-38"><a href="#cb17-38" aria-hidden="true" tabindex="-1"></a>plot_2 <span class="ot">&lt;-</span> <span class="cf">function</span>(data) {</span>
-<span id="cb17-39"><a href="#cb17-39" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb17-40"><a href="#cb17-40" aria-hidden="true" tabindex="-1"></a>  data <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span></span>
-<span id="cb17-41"><a href="#cb17-41" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(season,genre) <span class="sc">%&gt;%</span></span>
-<span id="cb17-42"><a href="#cb17-42" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarize</span>(<span class="at">ratio =</span> <span class="fu">mean</span>(ratio))</span>
-<span id="cb17-43"><a href="#cb17-43" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb17-44"><a href="#cb17-44" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> ratio, <span class="at">y =</span> <span class="fu">fct_rev</span>(season), <span class="at">color =</span> genre)) <span class="sc">+</span></span>
-<span id="cb17-45"><a href="#cb17-45" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">8</span>) <span class="sc">+</span></span>
-<span id="cb17-46"><a href="#cb17-46" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_ipsum</span>() <span class="sc">+</span></span>
-<span id="cb17-47"><a href="#cb17-47" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
-<span id="cb17-48"><a href="#cb17-48" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_color_viridis_d</span>(<span class="st">&quot;Genre&quot;</span>,</span>
-<span id="cb17-49"><a href="#cb17-49" aria-hidden="true" tabindex="-1"></a>      <span class="at">guide =</span> <span class="fu">guide_legend</span>(<span class="at">direction =</span> <span class="st">&quot;horizontal&quot;</span>)</span>
-<span id="cb17-50"><a href="#cb17-50" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">+</span></span>
-<span id="cb17-51"><a href="#cb17-51" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(</span>
-<span id="cb17-52"><a href="#cb17-52" aria-hidden="true" tabindex="-1"></a>      <span class="at">x =</span> <span class="st">&quot;Worldwide gross/Budget&quot;</span>,</span>
-<span id="cb17-53"><a href="#cb17-53" aria-hidden="true" tabindex="-1"></a>      <span class="at">y =</span> <span class="st">&quot;Season&quot;</span>,</span>
-<span id="cb17-54"><a href="#cb17-54" aria-hidden="true" tabindex="-1"></a>      <span class="at">title =</span> <span class="st">&quot;Return on investment of movies by season&quot;</span>,</span>
-<span id="cb17-55"><a href="#cb17-55" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">+</span></span>
-<span id="cb17-56"><a href="#cb17-56" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">5</span>, <span class="dv">10</span>), <span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="cn">NA</span>)) <span class="sc">+</span></span>
-<span id="cb17-57"><a href="#cb17-57" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">&quot;bottom&quot;</span>)</span>
-<span id="cb17-58"><a href="#cb17-58" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb17-59"><a href="#cb17-59" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-60"><a href="#cb17-60" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-61"><a href="#cb17-61" aria-hidden="true" tabindex="-1"></a>plot_3 <span class="ot">&lt;-</span> <span class="cf">function</span>(data) {</span>
-<span id="cb17-62"><a href="#cb17-62" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb17-63"><a href="#cb17-63" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">y =</span> <span class="fu">fct_rev</span>(<span class="fu">fct_infreq</span>(genre)), <span class="at">x =</span> season)) <span class="sc">+</span></span>
-<span id="cb17-64"><a href="#cb17-64" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_bin2d</span>() <span class="sc">+</span></span>
-<span id="cb17-65"><a href="#cb17-65" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_fill_viridis_c</span>(<span class="st">&quot;Number of movies&quot;</span>,</span>
-<span id="cb17-66"><a href="#cb17-66" aria-hidden="true" tabindex="-1"></a>      <span class="at">guide =</span> <span class="fu">guide_legend</span>(<span class="at">reverse =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb17-67"><a href="#cb17-67" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">+</span></span>
-<span id="cb17-68"><a href="#cb17-68" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_ipsum</span>() <span class="sc">+</span></span>
-<span id="cb17-69"><a href="#cb17-69" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(</span>
-<span id="cb17-70"><a href="#cb17-70" aria-hidden="true" tabindex="-1"></a>      <span class="at">x =</span> <span class="st">&quot;Season&quot;</span>,</span>
-<span id="cb17-71"><a href="#cb17-71" aria-hidden="true" tabindex="-1"></a>      <span class="at">y =</span> <span class="st">&quot;Genre&quot;</span>,</span>
-<span id="cb17-72"><a href="#cb17-72" aria-hidden="true" tabindex="-1"></a>      <span class="at">title =</span> <span class="st">&quot;Number of movies by season and genre&quot;</span></span>
-<span id="cb17-73"><a href="#cb17-73" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb17-74"><a href="#cb17-74" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb17-75"><a href="#cb17-75" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-76"><a href="#cb17-76" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-77"><a href="#cb17-77" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-78"><a href="#cb17-78" aria-hidden="true" tabindex="-1"></a>plot_4 <span class="ot">&lt;-</span> <span class="cf">function</span>(data) {</span>
-<span id="cb17-79"><a href="#cb17-79" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb17-80"><a href="#cb17-80" aria-hidden="true" tabindex="-1"></a>  data <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span></span>
-<span id="cb17-81"><a href="#cb17-81" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(decade) <span class="sc">%&gt;%</span></span>
-<span id="cb17-82"><a href="#cb17-82" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarize</span>(<span class="at">ratio =</span> <span class="fu">mean</span>(domestic_gross <span class="sc">/</span> worldwide_gross, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
-<span id="cb17-83"><a href="#cb17-83" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-84"><a href="#cb17-84" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-85"><a href="#cb17-85" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(data, <span class="fu">aes</span>(decade, ratio)) <span class="sc">+</span></span>
-<span id="cb17-86"><a href="#cb17-86" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">8</span>, <span class="at">color =</span> <span class="st">&quot;skyblue&quot;</span>) <span class="sc">+</span></span>
-<span id="cb17-87"><a href="#cb17-87" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_ipsum</span>() <span class="sc">+</span></span>
-<span id="cb17-88"><a href="#cb17-88" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="fl">0.5</span>, <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
-<span id="cb17-89"><a href="#cb17-89" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(</span>
-<span id="cb17-90"><a href="#cb17-90" aria-hidden="true" tabindex="-1"></a>      <span class="at">x =</span> <span class="st">&quot;Decade&quot;</span>,</span>
-<span id="cb17-91"><a href="#cb17-91" aria-hidden="true" tabindex="-1"></a>      <span class="at">y =</span> <span class="st">&quot;Domestic gross percentage of the total&quot;</span>,</span>
-<span id="cb17-92"><a href="#cb17-92" aria-hidden="true" tabindex="-1"></a>      <span class="at">title =</span> <span class="st">&quot;Domestic and worldwide gross compared&quot;</span></span>
-<span id="cb17-93"><a href="#cb17-93" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">+</span></span>
-<span id="cb17-94"><a href="#cb17-94" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_y_continuous</span>(</span>
-<span id="cb17-95"><a href="#cb17-95" aria-hidden="true" tabindex="-1"></a>      <span class="at">labels =</span> scales<span class="sc">::</span><span class="fu">label_percent</span>(),</span>
-<span id="cb17-96"><a href="#cb17-96" aria-hidden="true" tabindex="-1"></a>      <span class="at">limits =</span> <span class="fu">c</span>(<span class="fl">0.4</span>, <span class="dv">1</span>),</span>
-<span id="cb17-97"><a href="#cb17-97" aria-hidden="true" tabindex="-1"></a>      <span class="at">breaks =</span> <span class="fu">c</span>(<span class="fl">0.5</span>, <span class="fl">0.75</span>, <span class="dv">1</span>)</span>
-<span id="cb17-98"><a href="#cb17-98" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb17-99"><a href="#cb17-99" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb17-100"><a href="#cb17-100" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-101"><a href="#cb17-101" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-102"><a href="#cb17-102" aria-hidden="true" tabindex="-1"></a>plot_5 <span class="ot">&lt;-</span> <span class="cf">function</span>(data) {</span>
-<span id="cb17-103"><a href="#cb17-103" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb17-104"><a href="#cb17-104" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">data =</span> <span class="fu">subset</span>(data, ratio <span class="sc">&lt;</span> <span class="dv">150</span>), <span class="fu">aes</span>(year, ratio)) <span class="sc">+</span></span>
-<span id="cb17-105"><a href="#cb17-105" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_jitter</span>(<span class="at">alpha =</span> <span class="fl">0.7</span>, <span class="at">color =</span> <span class="st">&quot;grey&quot;</span>) <span class="sc">+</span></span>
-<span id="cb17-106"><a href="#cb17-106" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_y_continuous</span>(<span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">100</span>, <span class="dv">200</span>, <span class="dv">300</span>, <span class="dv">400</span>), <span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">500</span>)) <span class="sc">+</span></span>
-<span id="cb17-107"><a href="#cb17-107" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_ipsum</span>() <span class="sc">+</span></span>
-<span id="cb17-108"><a href="#cb17-108" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_mark_ellipse</span>(</span>
-<span id="cb17-109"><a href="#cb17-109" aria-hidden="true" tabindex="-1"></a>      <span class="at">data =</span> <span class="fu">subset</span>(data, ratio <span class="sc">&gt;</span> <span class="dv">150</span>),</span>
-<span id="cb17-110"><a href="#cb17-110" aria-hidden="true" tabindex="-1"></a>      <span class="fu">aes</span>(</span>
-<span id="cb17-111"><a href="#cb17-111" aria-hidden="true" tabindex="-1"></a>        <span class="at">filter =</span> ratio <span class="sc">&gt;</span> <span class="dv">400</span>,</span>
-<span id="cb17-112"><a href="#cb17-112" aria-hidden="true" tabindex="-1"></a>        <span class="at">description =</span> <span class="st">&quot;The Blair Witch Project 1999 </span><span class="sc">\n</span><span class="st">Paranormal Activity 2007&quot;</span></span>
-<span id="cb17-113"><a href="#cb17-113" aria-hidden="true" tabindex="-1"></a>      ),</span>
-<span id="cb17-114"><a href="#cb17-114" aria-hidden="true" tabindex="-1"></a>      <span class="at">label.fill =</span> <span class="cn">NA</span>,</span>
-<span id="cb17-115"><a href="#cb17-115" aria-hidden="true" tabindex="-1"></a>      <span class="at">con.type =</span> <span class="st">&quot;straight&quot;</span>,</span>
-<span id="cb17-116"><a href="#cb17-116" aria-hidden="true" tabindex="-1"></a>      <span class="at">label.family =</span> <span class="st">&quot;Arial Narrow&quot;</span>,</span>
-<span id="cb17-117"><a href="#cb17-117" aria-hidden="true" tabindex="-1"></a>      <span class="at">label.fontsize =</span> <span class="dv">11</span></span>
-<span id="cb17-118"><a href="#cb17-118" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">+</span></span>
-<span id="cb17-119"><a href="#cb17-119" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_jitter</span>(</span>
-<span id="cb17-120"><a href="#cb17-120" aria-hidden="true" tabindex="-1"></a>      <span class="at">data =</span> <span class="fu">subset</span>(data, ratio <span class="sc">&gt;</span> <span class="dv">150</span>),</span>
-<span id="cb17-121"><a href="#cb17-121" aria-hidden="true" tabindex="-1"></a>      <span class="fu">aes</span>(year, ratio, <span class="at">color =</span> genre),</span>
-<span id="cb17-122"><a href="#cb17-122" aria-hidden="true" tabindex="-1"></a>      <span class="at">size =</span> <span class="dv">3</span></span>
-<span id="cb17-123"><a href="#cb17-123" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">+</span></span>
-<span id="cb17-124"><a href="#cb17-124" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_color_viridis_d</span>(<span class="st">&quot;Genre&quot;</span>,<span class="at">limits =</span> <span class="fu">unique</span>(data<span class="sc">$</span>genre),</span>
-<span id="cb17-125"><a href="#cb17-125" aria-hidden="true" tabindex="-1"></a>                          <span class="at">breaks =</span> <span class="fu">unique</span>(<span class="fu">subset</span>(data, ratio<span class="sc">&gt;</span><span class="dv">150</span>)<span class="sc">$</span>genre)) <span class="sc">+</span></span>
-<span id="cb17-126"><a href="#cb17-126" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_mark_ellipse</span>(</span>
-<span id="cb17-127"><a href="#cb17-127" aria-hidden="true" tabindex="-1"></a>      <span class="at">data =</span> <span class="fu">subset</span>(data, ratio <span class="sc">&gt;</span> <span class="dv">150</span>),</span>
-<span id="cb17-128"><a href="#cb17-128" aria-hidden="true" tabindex="-1"></a>      <span class="fu">aes</span>(</span>
-<span id="cb17-129"><a href="#cb17-129" aria-hidden="true" tabindex="-1"></a>        <span class="at">filter =</span> ratio <span class="sc">&gt;</span> <span class="dv">180</span> <span class="sc">&amp;</span> ratio <span class="sc">&lt;</span> <span class="dv">400</span>,</span>
-<span id="cb17-130"><a href="#cb17-130" aria-hidden="true" tabindex="-1"></a>        <span class="at">description =</span> <span class="st">&quot;American Graffitti 1973</span><span class="sc">\n</span><span class="st">Rocky 1976</span><span class="sc">\n</span><span class="st">Halloween 1978&quot;</span></span>
-<span id="cb17-131"><a href="#cb17-131" aria-hidden="true" tabindex="-1"></a>      ),</span>
-<span id="cb17-132"><a href="#cb17-132" aria-hidden="true" tabindex="-1"></a>      <span class="at">con.type =</span> <span class="st">&quot;straight&quot;</span>,</span>
-<span id="cb17-133"><a href="#cb17-133" aria-hidden="true" tabindex="-1"></a>      <span class="at">label.fill =</span> <span class="cn">NA</span>,</span>
-<span id="cb17-134"><a href="#cb17-134" aria-hidden="true" tabindex="-1"></a>      <span class="at">label.family =</span> <span class="st">&quot;Arial Narrow&quot;</span>,</span>
-<span id="cb17-135"><a href="#cb17-135" aria-hidden="true" tabindex="-1"></a>      <span class="at">label.fontsize =</span> <span class="dv">11</span></span>
-<span id="cb17-136"><a href="#cb17-136" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">+</span></span>
-<span id="cb17-137"><a href="#cb17-137" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(</span>
-<span id="cb17-138"><a href="#cb17-138" aria-hidden="true" tabindex="-1"></a>      <span class="at">x =</span> <span class="st">&quot;Year&quot;</span>,</span>
-<span id="cb17-139"><a href="#cb17-139" aria-hidden="true" tabindex="-1"></a>      <span class="at">y =</span> <span class="st">&quot;Worldwide Gross / Budget&quot;</span>,</span>
-<span id="cb17-140"><a href="#cb17-140" aria-hidden="true" tabindex="-1"></a>      <span class="at">title =</span> <span class="st">&quot;Most profitable movies&quot;</span></span>
-<span id="cb17-141"><a href="#cb17-141" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb17-142"><a href="#cb17-142" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb17-143"><a href="#cb17-143" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-144"><a href="#cb17-144" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-145"><a href="#cb17-145" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-146"><a href="#cb17-146" aria-hidden="true" tabindex="-1"></a>plot_6 <span class="ot">&lt;-</span> <span class="cf">function</span>(data) {</span>
-<span id="cb17-147"><a href="#cb17-147" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb17-148"><a href="#cb17-148" aria-hidden="true" tabindex="-1"></a>  data <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span></span>
-<span id="cb17-149"><a href="#cb17-149" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(mpaa_rating, genre) <span class="sc">%&gt;%</span></span>
-<span id="cb17-150"><a href="#cb17-150" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarise</span>(<span class="at">count =</span> <span class="fu">n</span>()) <span class="sc">%&gt;%</span></span>
-<span id="cb17-151"><a href="#cb17-151" aria-hidden="true" tabindex="-1"></a>    <span class="fu">gather_set_data</span>(<span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb17-152"><a href="#cb17-152" aria-hidden="true" tabindex="-1"></a>    <span class="fu">drop_na</span>()</span>
-<span id="cb17-153"><a href="#cb17-153" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-154"><a href="#cb17-154" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-155"><a href="#cb17-155" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(data, <span class="fu">aes</span>(x, <span class="at">id =</span> id, <span class="at">split =</span> y, <span class="at">value =</span> count)) <span class="sc">+</span></span>
-<span id="cb17-156"><a href="#cb17-156" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_parallel_sets</span>(<span class="fu">aes</span>(<span class="at">fill =</span> mpaa_rating),</span>
-<span id="cb17-157"><a href="#cb17-157" aria-hidden="true" tabindex="-1"></a>      <span class="at">strength =</span> <span class="fl">0.5</span>,</span>
-<span id="cb17-158"><a href="#cb17-158" aria-hidden="true" tabindex="-1"></a>      <span class="at">axis.width =</span> <span class="fl">0.32</span>,</span>
-<span id="cb17-159"><a href="#cb17-159" aria-hidden="true" tabindex="-1"></a>      <span class="at">alpha =</span> <span class="fl">0.9</span>,</span>
-<span id="cb17-160"><a href="#cb17-160" aria-hidden="true" tabindex="-1"></a>      <span class="at">color =</span> <span class="st">&quot;grey50&quot;</span></span>
-<span id="cb17-161"><a href="#cb17-161" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">+</span></span>
-<span id="cb17-162"><a href="#cb17-162" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_parallel_sets_axes</span>() <span class="sc">+</span></span>
-<span id="cb17-163"><a href="#cb17-163" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_parallel_sets_labels</span>(<span class="at">angle =</span> <span class="dv">0</span>) <span class="sc">+</span></span>
-<span id="cb17-164"><a href="#cb17-164" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_ipsum</span>() <span class="sc">+</span></span>
-<span id="cb17-165"><a href="#cb17-165" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_fill_viridis_d</span>(<span class="st">&quot;MPAA rating&quot;</span>,<span class="at">option=</span><span class="st">&quot;E&quot;</span>,<span class="at">end=</span><span class="fl">0.9</span>,</span>
-<span id="cb17-166"><a href="#cb17-166" aria-hidden="true" tabindex="-1"></a>      <span class="at">guide =</span> <span class="fu">guide_legend</span>(<span class="at">direction =</span> <span class="st">&quot;vertical&quot;</span>)</span>
-<span id="cb17-167"><a href="#cb17-167" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">+</span></span>
-<span id="cb17-168"><a href="#cb17-168" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(</span>
-<span id="cb17-169"><a href="#cb17-169" aria-hidden="true" tabindex="-1"></a>      <span class="at">panel.grid.major =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb17-170"><a href="#cb17-170" aria-hidden="true" tabindex="-1"></a>      <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>()</span>
-<span id="cb17-171"><a href="#cb17-171" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">+</span></span>
-<span id="cb17-172"><a href="#cb17-172" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_x_discrete</span>(<span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&quot;Genre&quot;</span>, <span class="st">&quot;MPAA rating&quot;</span>)) <span class="sc">+</span></span>
-<span id="cb17-173"><a href="#cb17-173" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(</span>
-<span id="cb17-174"><a href="#cb17-174" aria-hidden="true" tabindex="-1"></a>      <span class="at">title =</span> <span class="st">&quot;Hollywood movies by MPAA rating and genre&quot;</span></span>
-<span id="cb17-175"><a href="#cb17-175" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb17-176"><a href="#cb17-176" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># plots_panel.R</span></span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggrepel)</span>
-<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>panel_1 <span class="ot">&lt;-</span> <span class="cf">function</span>(data) {</span>
-<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>  data <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span></span>
-<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(genre) <span class="sc">%&gt;%</span></span>
-<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarize</span>(<span class="at">total =</span> <span class="fu">sum</span>(worldwide_gross)) <span class="sc">%&gt;%</span></span>
-<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">perc =</span> <span class="fu">round</span>(total <span class="sc">/</span> <span class="fu">sum</span>(total) <span class="sc">*</span> <span class="dv">100</span>, <span class="dv">0</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">label =</span> <span class="fu">paste0</span>(<span class="fu">round</span>(total <span class="sc">/</span> <span class="fu">sum</span>(total) <span class="sc">*</span> <span class="dv">100</span>, <span class="dv">0</span>), <span class="st">&quot;%&quot;</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a>    <span class="fu">arrange</span>(<span class="fu">desc</span>(genre))</span>
-<span id="cb18-16"><a href="#cb18-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-17"><a href="#cb18-17" aria-hidden="true" tabindex="-1"></a>  height <span class="ot">&lt;-</span> <span class="fu">cumsum</span>(data<span class="sc">$</span>perc) <span class="sc">-</span> <span class="dv">5</span></span>
-<span id="cb18-18"><a href="#cb18-18" aria-hidden="true" tabindex="-1"></a>  height[<span class="dv">1</span>] <span class="ot">&lt;-</span> height[<span class="dv">1</span>] <span class="sc">+</span> <span class="dv">5</span></span>
-<span id="cb18-19"><a href="#cb18-19" aria-hidden="true" tabindex="-1"></a>  height[<span class="dv">5</span>] <span class="ot">&lt;-</span> height[<span class="dv">5</span>] <span class="sc">-</span> <span class="dv">15</span></span>
-<span id="cb18-20"><a href="#cb18-20" aria-hidden="true" tabindex="-1"></a>  height[<span class="dv">4</span>] <span class="ot">&lt;-</span> height[<span class="dv">4</span>] <span class="sc">-</span> <span class="dv">5</span></span>
-<span id="cb18-21"><a href="#cb18-21" aria-hidden="true" tabindex="-1"></a>  df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x =</span> <span class="fl">2.5</span>, <span class="at">y =</span> height, <span class="at">label =</span> data<span class="sc">$</span>label, <span class="at">perc =</span> data<span class="sc">$</span>perc)</span>
-<span id="cb18-22"><a href="#cb18-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-23"><a href="#cb18-23" aria-hidden="true" tabindex="-1"></a>  p1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="dv">1</span>, <span class="at">y =</span> perc, <span class="at">fill =</span> genre)) <span class="sc">+</span></span>
-<span id="cb18-24"><a href="#cb18-24" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">&quot;identity&quot;</span>, <span class="at">width =</span> <span class="fl">1.2</span>) <span class="sc">+</span></span>
-<span id="cb18-25"><a href="#cb18-25" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="cn">NA</span>), <span class="at">expand =</span> <span class="fu">expansion</span>(<span class="dv">0</span>,<span class="dv">0</span>)) <span class="sc">+</span></span>
-<span id="cb18-26"><a href="#cb18-26" aria-hidden="true" tabindex="-1"></a>    <span class="fu">xlim</span>(<span class="sc">-</span><span class="fl">0.9</span>, <span class="fl">2.2</span>) <span class="sc">+</span></span>
-<span id="cb18-27"><a href="#cb18-27" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_fill_viridis_d</span>(<span class="st">&quot;&quot;</span>) <span class="sc">+</span></span>
-<span id="cb18-28"><a href="#cb18-28" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_void</span>(<span class="at">base_size =</span> <span class="dv">20</span>, <span class="at">base_family =</span> <span class="st">&quot;Roboto Condensed&quot;</span>) <span class="sc">+</span></span>
-<span id="cb18-29"><a href="#cb18-29" aria-hidden="true" tabindex="-1"></a>    <span class="fu">coord_polar</span>(<span class="at">theta =</span> <span class="st">&quot;y&quot;</span>) <span class="sc">+</span></span>
-<span id="cb18-30"><a href="#cb18-30" aria-hidden="true" tabindex="-1"></a>    <span class="fu">guides</span>(<span class="at">label =</span> <span class="st">&quot;none&quot;</span>) <span class="sc">+</span></span>
-<span id="cb18-31"><a href="#cb18-31" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Percentage of total gross by genre&quot;</span>) <span class="sc">+</span></span>
-<span id="cb18-32"><a href="#cb18-32" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">plot.margin =</span> <span class="fu">margin</span>(<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>), <span class="at">legend.position =</span> <span class="st">&quot;none&quot;</span>) <span class="sc">+</span></span>
-<span id="cb18-33"><a href="#cb18-33" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_text</span>(<span class="at">data =</span> df, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fl">2.2</span>, <span class="at">y =</span> height, <span class="at">label =</span> label), <span class="at">inherit.aes =</span> <span class="cn">FALSE</span>, <span class="at">color =</span> <span class="st">&quot;grey20&quot;</span>, <span class="at">size =</span> <span class="dv">6</span>)</span>
-<span id="cb18-34"><a href="#cb18-34" aria-hidden="true" tabindex="-1"></a>  p1</span>
-<span id="cb18-35"><a href="#cb18-35" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb18-36"><a href="#cb18-36" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-37"><a href="#cb18-37" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-38"><a href="#cb18-38" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-39"><a href="#cb18-39" aria-hidden="true" tabindex="-1"></a>panel_2 <span class="ot">&lt;-</span> <span class="cf">function</span>(data) {</span>
-<span id="cb18-40"><a href="#cb18-40" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb18-41"><a href="#cb18-41" aria-hidden="true" tabindex="-1"></a>  top3 <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span></span>
-<span id="cb18-42"><a href="#cb18-42" aria-hidden="true" tabindex="-1"></a>    <span class="fu">arrange</span>(<span class="fu">desc</span>(production_budget)) <span class="sc">%&gt;%</span></span>
-<span id="cb18-43"><a href="#cb18-43" aria-hidden="true" tabindex="-1"></a>    <span class="fu">slice_max</span>(production_budget, <span class="at">n =</span> <span class="dv">3</span>)</span>
-<span id="cb18-44"><a href="#cb18-44" aria-hidden="true" tabindex="-1"></a>  top3<span class="sc">$</span>movie[<span class="dv">2</span>] <span class="ot">&lt;-</span> <span class="st">&quot;Who Framed</span><span class="sc">\n</span><span class="st">Roger Rabbit?&quot;</span></span>
-<span id="cb18-45"><a href="#cb18-45" aria-hidden="true" tabindex="-1"></a>  top3<span class="sc">$</span>movie <span class="ot">&lt;-</span> <span class="fu">paste0</span>(top3<span class="sc">$</span>movie, <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>, <span class="st">&quot;(&quot;</span>, top3<span class="sc">$</span>year, <span class="st">&quot;)&quot;</span>)</span>
-<span id="cb18-46"><a href="#cb18-46" aria-hidden="true" tabindex="-1"></a>  top3<span class="sc">$</span>movie <span class="ot">&lt;-</span> <span class="fu">factor</span>(top3<span class="sc">$</span>movie, <span class="at">levels =</span> top3<span class="sc">$</span>movie[<span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">3</span>)])</span>
-<span id="cb18-47"><a href="#cb18-47" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-48"><a href="#cb18-48" aria-hidden="true" tabindex="-1"></a>  yloc <span class="ot">&lt;-</span> top3<span class="sc">$</span>production_budget</span>
-<span id="cb18-49"><a href="#cb18-49" aria-hidden="true" tabindex="-1"></a>  yloc[<span class="dv">1</span>] <span class="ot">&lt;-</span> yloc[<span class="dv">1</span>] <span class="sc">*</span> <span class="fl">1.01</span></span>
-<span id="cb18-50"><a href="#cb18-50" aria-hidden="true" tabindex="-1"></a>  yloc[<span class="dv">2</span>] <span class="ot">&lt;-</span> yloc[<span class="dv">2</span>] <span class="sc">/</span> <span class="fl">1.01</span></span>
-<span id="cb18-51"><a href="#cb18-51" aria-hidden="true" tabindex="-1"></a>  yloc[<span class="dv">3</span>] <span class="ot">&lt;-</span> yloc[<span class="dv">3</span>] <span class="sc">/</span> <span class="fl">1.02</span></span>
-<span id="cb18-52"><a href="#cb18-52" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-53"><a href="#cb18-53" aria-hidden="true" tabindex="-1"></a>  top3<span class="sc">$</span>genre <span class="ot">&lt;-</span> <span class="fu">factor</span>(top3<span class="sc">$</span>genre, <span class="at">levels =</span> <span class="fu">c</span>(</span>
-<span id="cb18-54"><a href="#cb18-54" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;Drama&quot;</span>, <span class="st">&quot;Comedy&quot;</span>, <span class="st">&quot;Adventure&quot;</span>, <span class="st">&quot;Horror&quot;</span>,</span>
-<span id="cb18-55"><a href="#cb18-55" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;Action&quot;</span></span>
-<span id="cb18-56"><a href="#cb18-56" aria-hidden="true" tabindex="-1"></a>  ), )</span>
-<span id="cb18-57"><a href="#cb18-57" aria-hidden="true" tabindex="-1"></a>  p2 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(top3, <span class="fu">aes</span>(movie, production_budget, <span class="at">fill =</span> genre)) <span class="sc">+</span></span>
-<span id="cb18-58"><a href="#cb18-58" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">&quot;identity&quot;</span>, <span class="at">alpha =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
-<span id="cb18-59"><a href="#cb18-59" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">20</span>, <span class="at">base_family =</span> <span class="st">&quot;Roboto Condensed&quot;</span>) <span class="sc">+</span></span>
-<span id="cb18-60"><a href="#cb18-60" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_fill_viridis_d</span>(<span class="at">drop =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
-<span id="cb18-61"><a href="#cb18-61" aria-hidden="true" tabindex="-1"></a>    <span class="fu">guides</span>(<span class="at">fill =</span> <span class="st">&quot;none&quot;</span>, <span class="at">color =</span> <span class="st">&quot;none&quot;</span>) <span class="sc">+</span></span>
-<span id="cb18-62"><a href="#cb18-62" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;&quot;</span>, <span class="at">y =</span> <span class="st">&quot;&quot;</span>, <span class="at">title =</span> <span class="st">&quot;Movies with the highest budget&quot;</span>) <span class="sc">+</span></span>
-<span id="cb18-63"><a href="#cb18-63" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_y_continuous</span>(</span>
-<span id="cb18-64"><a href="#cb18-64" aria-hidden="true" tabindex="-1"></a>      <span class="at">breaks =</span> yloc,</span>
-<span id="cb18-65"><a href="#cb18-65" aria-hidden="true" tabindex="-1"></a>      <span class="at">labels =</span> <span class="fu">paste</span>(<span class="fu">round</span>(top3<span class="sc">$</span>production_budget <span class="sc">/</span> <span class="dv">10</span><span class="sc">^</span><span class="dv">6</span>, <span class="dv">1</span>), <span class="st">&quot;mil.&quot;</span>),</span>
-<span id="cb18-66"><a href="#cb18-66" aria-hidden="true" tabindex="-1"></a>      <span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fu">max</span>(top3<span class="sc">$</span>production_budget) <span class="sc">*</span> <span class="fl">1.06</span>)</span>
-<span id="cb18-67"><a href="#cb18-67" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">+</span></span>
-<span id="cb18-68"><a href="#cb18-68" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">panel.grid.major =</span> <span class="fu">element_blank</span>(), <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>()) <span class="sc">+</span></span>
-<span id="cb18-69"><a href="#cb18-69" aria-hidden="true" tabindex="-1"></a>    <span class="fu">coord_cartesian</span>(<span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">10</span><span class="sc">^</span><span class="dv">8</span> <span class="sc">*</span> <span class="fl">1.1</span>, <span class="cn">NA</span>))</span>
-<span id="cb18-70"><a href="#cb18-70" aria-hidden="true" tabindex="-1"></a>  p2</span>
-<span id="cb18-71"><a href="#cb18-71" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb18-72"><a href="#cb18-72" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-73"><a href="#cb18-73" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-74"><a href="#cb18-74" aria-hidden="true" tabindex="-1"></a>panel_3 <span class="ot">&lt;-</span> <span class="cf">function</span>(data) {</span>
-<span id="cb18-75"><a href="#cb18-75" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb18-76"><a href="#cb18-76" aria-hidden="true" tabindex="-1"></a>  xintercepts <span class="ot">&lt;-</span> <span class="fu">as.Date</span>(<span class="fu">c</span>(<span class="st">&quot;1980-01-01&quot;</span>, <span class="st">&quot;1990-01-01&quot;</span>))</span>
-<span id="cb18-77"><a href="#cb18-77" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-78"><a href="#cb18-78" aria-hidden="true" tabindex="-1"></a>  p3 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(data, <span class="fu">aes</span>(release_date, worldwide_gross, <span class="at">color =</span> genre, <span class="at">size =</span> worldwide_gross, <span class="at">alpha =</span> worldwide_gross)) <span class="sc">+</span></span>
-<span id="cb18-79"><a href="#cb18-79" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb18-80"><a href="#cb18-80" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">20</span>, <span class="at">base_family =</span> <span class="st">&quot;Roboto Condensed&quot;</span>) <span class="sc">+</span></span>
-<span id="cb18-81"><a href="#cb18-81" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_color_viridis_d</span>(<span class="st">&quot;&quot;</span>, <span class="at">direction =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
-<span id="cb18-82"><a href="#cb18-82" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">&quot;none&quot;</span>, <span class="at">panel.grid.major =</span> <span class="fu">element_blank</span>(), <span class="at">plot.margin =</span> <span class="fu">margin</span>(<span class="at">t =</span> <span class="dv">0</span>, <span class="fl">5.5</span>, <span class="at">b =</span> <span class="dv">0</span>, <span class="fl">5.5</span>)) <span class="sc">+</span></span>
-<span id="cb18-83"><a href="#cb18-83" aria-hidden="true" tabindex="-1"></a>    <span class="fu">annotate</span>(</span>
-<span id="cb18-84"><a href="#cb18-84" aria-hidden="true" tabindex="-1"></a>      <span class="at">geom =</span> <span class="st">&quot;rect&quot;</span>, <span class="at">xmin =</span> <span class="fu">as.Date</span>(<span class="st">&quot;1980-01-01&quot;</span>), <span class="at">xmax =</span> <span class="fu">as.Date</span>(<span class="st">&quot;1990-01-01&quot;</span>),</span>
-<span id="cb18-85"><a href="#cb18-85" aria-hidden="true" tabindex="-1"></a>      <span class="at">ymin =</span> <span class="sc">-</span><span class="cn">Inf</span>, <span class="at">ymax =</span> <span class="cn">Inf</span>, <span class="at">fill =</span> <span class="st">&quot;black&quot;</span>, <span class="at">alpha =</span> <span class="fl">0.05</span></span>
-<span id="cb18-86"><a href="#cb18-86" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">+</span></span>
-<span id="cb18-87"><a href="#cb18-87" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Worldwide gross&quot;</span>, <span class="at">title =</span> <span class="st">&quot;Wordwide gross of movies&quot;</span>) <span class="sc">+</span></span>
-<span id="cb18-88"><a href="#cb18-88" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_x_date</span>(<span class="at">date_breaks =</span> <span class="st">&quot;1 years&quot;</span>, <span class="at">date_labels =</span> <span class="st">&quot;%Y&quot;</span>) <span class="sc">+</span></span>
-<span id="cb18-89"><a href="#cb18-89" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_alpha</span>(<span class="at">range =</span> <span class="fu">c</span>(<span class="fl">0.5</span>, <span class="dv">1</span>)) <span class="sc">+</span></span>
-<span id="cb18-90"><a href="#cb18-90" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_y_continuous</span>(<span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">5</span>, <span class="dv">10</span>, <span class="dv">15</span>, <span class="dv">20</span>) <span class="sc">*</span> <span class="dv">10</span><span class="sc">^</span><span class="dv">8</span>, <span class="at">labels =</span> <span class="fu">paste</span>(<span class="fu">c</span>(<span class="st">&quot;0&quot;</span>, <span class="st">&quot;0.5&quot;</span>, <span class="st">&quot;1&quot;</span>, <span class="st">&quot;1.5&quot;</span>, <span class="st">&quot;2&quot;</span>), <span class="st">&quot;mlrd.&quot;</span>), <span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">24</span> <span class="sc">*</span> <span class="dv">10</span><span class="sc">^</span><span class="dv">8</span>)) <span class="sc">+</span></span>
-<span id="cb18-91"><a href="#cb18-91" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_vline</span>(<span class="at">data =</span> <span class="fu">as.data.frame</span>(xintercepts), <span class="fu">aes</span>(<span class="at">xintercept =</span> xintercepts)) <span class="sc">+</span></span>
-<span id="cb18-92"><a href="#cb18-92" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_size_area</span>(<span class="at">max_size =</span> <span class="dv">12</span>) <span class="sc">+</span></span>
-<span id="cb18-93"><a href="#cb18-93" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_text_repel</span>(<span class="at">data =</span> <span class="fu">slice_max</span>(data, worldwide_gross, <span class="at">n =</span> <span class="dv">8</span>), <span class="fu">aes</span>(release_date, worldwide_gross, <span class="at">label =</span> movie), <span class="at">inherit.aes =</span> <span class="cn">FALSE</span>, <span class="at">nudge_y =</span> <span class="dv">300000000</span>, <span class="at">min.segment.length =</span> <span class="dv">3</span>, <span class="at">size =</span> <span class="dv">5</span>)</span>
-<span id="cb18-94"><a href="#cb18-94" aria-hidden="true" tabindex="-1"></a>  p3</span>
-<span id="cb18-95"><a href="#cb18-95" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb18-96"><a href="#cb18-96" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-97"><a href="#cb18-97" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-98"><a href="#cb18-98" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-99"><a href="#cb18-99" aria-hidden="true" tabindex="-1"></a>panel_4 <span class="ot">&lt;-</span> <span class="cf">function</span>(data) {</span>
-<span id="cb18-100"><a href="#cb18-100" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb18-101"><a href="#cb18-101" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb18-102"><a href="#cb18-102" aria-hidden="true" tabindex="-1"></a>  xintercepts <span class="ot">&lt;-</span> <span class="fu">as.Date</span>(<span class="fu">c</span>(<span class="st">&quot;1980-01-01&quot;</span>, <span class="st">&quot;1990-01-01&quot;</span>))</span>
-<span id="cb18-103"><a href="#cb18-103" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb18-104"><a href="#cb18-104" aria-hidden="true" tabindex="-1"></a>  p4<span class="ot">&lt;-</span><span class="fu">ggplot</span>(</span>
-<span id="cb18-105"><a href="#cb18-105" aria-hidden="true" tabindex="-1"></a>    data,</span>
-<span id="cb18-106"><a href="#cb18-106" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(release_date, production_budget, <span class="at">color =</span> genre, <span class="at">size =</span> production_budget, <span class="at">alpha =</span> worldwide_gross)</span>
-<span id="cb18-107"><a href="#cb18-107" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb18-108"><a href="#cb18-108" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb18-109"><a href="#cb18-109" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">20</span>, <span class="at">base_family =</span> <span class="st">&quot;Roboto Condensed&quot;</span>) <span class="sc">+</span></span>
-<span id="cb18-110"><a href="#cb18-110" aria-hidden="true" tabindex="-1"></a>    <span class="fu">guides</span>(<span class="at">alpha =</span> <span class="st">&quot;none&quot;</span>, <span class="at">size =</span> <span class="st">&quot;none&quot;</span>) <span class="sc">+</span></span>
-<span id="cb18-111"><a href="#cb18-111" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_color_viridis_d</span>(<span class="st">&quot;&quot;</span>, <span class="at">direction =</span> <span class="dv">1</span>, <span class="at">guide =</span> <span class="fu">guide_legend</span>(</span>
-<span id="cb18-112"><a href="#cb18-112" aria-hidden="true" tabindex="-1"></a>      <span class="at">keyheight =</span> <span class="fu">unit</span>(<span class="dv">7</span>, <span class="at">units =</span> <span class="st">&quot;mm&quot;</span>),</span>
-<span id="cb18-113"><a href="#cb18-113" aria-hidden="true" tabindex="-1"></a>      <span class="at">keywidth =</span> <span class="fu">unit</span>(<span class="dv">15</span>, <span class="at">units =</span> <span class="st">&quot;mm&quot;</span>),</span>
-<span id="cb18-114"><a href="#cb18-114" aria-hidden="true" tabindex="-1"></a>      <span class="at">label.position =</span> <span class="st">&quot;bottom&quot;</span>, <span class="at">title.position =</span> <span class="st">&quot;top&quot;</span>,</span>
-<span id="cb18-115"><a href="#cb18-115" aria-hidden="true" tabindex="-1"></a>      <span class="at">nrow =</span> <span class="dv">1</span>, <span class="at">title.hjust =</span> <span class="fl">0.5</span>, <span class="at">override.aes =</span> <span class="fu">list</span>(<span class="at">size =</span> <span class="dv">10</span>)</span>
-<span id="cb18-116"><a href="#cb18-116" aria-hidden="true" tabindex="-1"></a>    )) <span class="sc">+</span></span>
-<span id="cb18-117"><a href="#cb18-117" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">&quot;bottom&quot;</span>, <span class="at">panel.grid.major =</span> <span class="fu">element_blank</span>(), <span class="at">plot.margin =</span> <span class="fu">margin</span>(<span class="at">t =</span> <span class="dv">0</span>)) <span class="sc">+</span></span>
-<span id="cb18-118"><a href="#cb18-118" aria-hidden="true" tabindex="-1"></a>    <span class="fu">annotate</span>(</span>
-<span id="cb18-119"><a href="#cb18-119" aria-hidden="true" tabindex="-1"></a>      <span class="at">geom =</span> <span class="st">&quot;rect&quot;</span>, <span class="at">xmin =</span> <span class="fu">as.Date</span>(<span class="st">&quot;1980-01-01&quot;</span>), <span class="at">xmax =</span> <span class="fu">as.Date</span>(<span class="st">&quot;1990-01-01&quot;</span>),</span>
-<span id="cb18-120"><a href="#cb18-120" aria-hidden="true" tabindex="-1"></a>      <span class="at">ymin =</span> <span class="sc">-</span><span class="cn">Inf</span>, <span class="at">ymax =</span> <span class="cn">Inf</span>, <span class="at">fill =</span> <span class="st">&quot;black&quot;</span>, <span class="at">alpha =</span> <span class="fl">0.05</span></span>
-<span id="cb18-121"><a href="#cb18-121" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">+</span></span>
-<span id="cb18-122"><a href="#cb18-122" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Year&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Budget&quot;</span>, <span class="at">title =</span> <span class="st">&quot;Movie budgets&quot;</span>) <span class="sc">+</span></span>
-<span id="cb18-123"><a href="#cb18-123" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_x_date</span>(<span class="at">date_breaks =</span> <span class="st">&quot;1 years&quot;</span>, <span class="at">date_labels =</span> <span class="st">&quot;%Y&quot;</span>) <span class="sc">+</span></span>
-<span id="cb18-124"><a href="#cb18-124" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_alpha</span>(<span class="at">range =</span> <span class="fu">c</span>(<span class="fl">0.5</span>, <span class="dv">1</span>)) <span class="sc">+</span></span>
-<span id="cb18-125"><a href="#cb18-125" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_y_continuous</span>(<span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">0.5</span>, <span class="dv">1</span>, <span class="fl">1.5</span>) <span class="sc">*</span> <span class="dv">10</span><span class="sc">^</span><span class="dv">8</span>, <span class="at">labels =</span> <span class="fu">paste</span>(<span class="fu">c</span>(<span class="st">&quot;0&quot;</span>, <span class="st">&quot;50&quot;</span>, <span class="st">&quot;100&quot;</span>, <span class="st">&quot;150&quot;</span>), <span class="st">&quot;mil.&quot;</span>), <span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">1.7</span> <span class="sc">*</span> <span class="dv">10</span><span class="sc">^</span><span class="dv">8</span>)) <span class="sc">+</span></span>
-<span id="cb18-126"><a href="#cb18-126" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_vline</span>(<span class="at">data =</span> <span class="fu">as.data.frame</span>(xintercepts), <span class="fu">aes</span>(<span class="at">xintercept =</span> xintercepts)) <span class="sc">+</span></span>
-<span id="cb18-127"><a href="#cb18-127" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_size_area</span>(<span class="at">max_size =</span> <span class="dv">8</span>)</span>
-<span id="cb18-128"><a href="#cb18-128" aria-hidden="true" tabindex="-1"></a>  p4</span>
-<span id="cb18-129"><a href="#cb18-129" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<span id="cb17-38"><a href="#cb17-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-39"><a href="#cb17-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-40"><a href="#cb17-40" aria-hidden="true" tabindex="-1"></a>panel_2 <span class="ot">&lt;-</span> <span class="cf">function</span>(data) {</span>
+<span id="cb17-41"><a href="#cb17-41" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb17-42"><a href="#cb17-42" aria-hidden="true" tabindex="-1"></a>  top3 <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span></span>
+<span id="cb17-43"><a href="#cb17-43" aria-hidden="true" tabindex="-1"></a>    <span class="fu">arrange</span>(<span class="fu">desc</span>(production_budget)) <span class="sc">%&gt;%</span></span>
+<span id="cb17-44"><a href="#cb17-44" aria-hidden="true" tabindex="-1"></a>    <span class="fu">slice_max</span>(production_budget, <span class="at">n =</span> <span class="dv">3</span>)</span>
+<span id="cb17-45"><a href="#cb17-45" aria-hidden="true" tabindex="-1"></a>  top3<span class="sc">$</span>movie[<span class="dv">2</span>] <span class="ot">&lt;-</span> <span class="st">&quot;Who Framed</span><span class="sc">\n</span><span class="st">Roger Rabbit?&quot;</span></span>
+<span id="cb17-46"><a href="#cb17-46" aria-hidden="true" tabindex="-1"></a>  top3<span class="sc">$</span>movie <span class="ot">&lt;-</span> <span class="fu">paste0</span>(top3<span class="sc">$</span>movie, <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>, <span class="st">&quot;(&quot;</span>, top3<span class="sc">$</span>year, <span class="st">&quot;)&quot;</span>)</span>
+<span id="cb17-47"><a href="#cb17-47" aria-hidden="true" tabindex="-1"></a>  top3<span class="sc">$</span>movie <span class="ot">&lt;-</span> <span class="fu">factor</span>(top3<span class="sc">$</span>movie, <span class="at">levels =</span> top3<span class="sc">$</span>movie[<span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">3</span>)])</span>
+<span id="cb17-48"><a href="#cb17-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-49"><a href="#cb17-49" aria-hidden="true" tabindex="-1"></a>  yloc <span class="ot">&lt;-</span> top3<span class="sc">$</span>production_budget</span>
+<span id="cb17-50"><a href="#cb17-50" aria-hidden="true" tabindex="-1"></a>  yloc[<span class="dv">1</span>] <span class="ot">&lt;-</span> yloc[<span class="dv">1</span>] <span class="sc">*</span> <span class="fl">1.01</span></span>
+<span id="cb17-51"><a href="#cb17-51" aria-hidden="true" tabindex="-1"></a>  yloc[<span class="dv">2</span>] <span class="ot">&lt;-</span> yloc[<span class="dv">2</span>] <span class="sc">/</span> <span class="fl">1.01</span></span>
+<span id="cb17-52"><a href="#cb17-52" aria-hidden="true" tabindex="-1"></a>  yloc[<span class="dv">3</span>] <span class="ot">&lt;-</span> yloc[<span class="dv">3</span>] <span class="sc">/</span> <span class="fl">1.02</span></span>
+<span id="cb17-53"><a href="#cb17-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-54"><a href="#cb17-54" aria-hidden="true" tabindex="-1"></a>  top3<span class="sc">$</span>genre <span class="ot">&lt;-</span> <span class="fu">factor</span>(top3<span class="sc">$</span>genre, <span class="at">levels =</span> <span class="fu">c</span>(</span>
+<span id="cb17-55"><a href="#cb17-55" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;Drama&quot;</span>, <span class="st">&quot;Comedy&quot;</span>, <span class="st">&quot;Adventure&quot;</span>, <span class="st">&quot;Horror&quot;</span>,</span>
+<span id="cb17-56"><a href="#cb17-56" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;Action&quot;</span></span>
+<span id="cb17-57"><a href="#cb17-57" aria-hidden="true" tabindex="-1"></a>  ), )</span>
+<span id="cb17-58"><a href="#cb17-58" aria-hidden="true" tabindex="-1"></a>  p2 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(top3, <span class="fu">aes</span>(movie, production_budget, <span class="at">fill =</span> genre)) <span class="sc">+</span></span>
+<span id="cb17-59"><a href="#cb17-59" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">&quot;identity&quot;</span>, <span class="at">alpha =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb17-60"><a href="#cb17-60" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">20</span>, <span class="at">base_family =</span> <span class="st">&quot;Roboto Condensed&quot;</span>) <span class="sc">+</span></span>
+<span id="cb17-61"><a href="#cb17-61" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_fill_vapoRwave</span>(<span class="at">drop =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb17-62"><a href="#cb17-62" aria-hidden="true" tabindex="-1"></a>    <span class="fu">guides</span>(<span class="at">fill =</span> <span class="st">&quot;none&quot;</span>, <span class="at">color =</span> <span class="st">&quot;none&quot;</span>) <span class="sc">+</span></span>
+<span id="cb17-63"><a href="#cb17-63" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;&quot;</span>, <span class="at">y =</span> <span class="st">&quot;&quot;</span>, <span class="at">title =</span> <span class="st">&quot;Movies with the highest budget&quot;</span>) <span class="sc">+</span></span>
+<span id="cb17-64"><a href="#cb17-64" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_y_continuous</span>(</span>
+<span id="cb17-65"><a href="#cb17-65" aria-hidden="true" tabindex="-1"></a>      <span class="at">breaks =</span> yloc,</span>
+<span id="cb17-66"><a href="#cb17-66" aria-hidden="true" tabindex="-1"></a>      <span class="at">labels =</span> <span class="fu">paste</span>(<span class="fu">round</span>(top3<span class="sc">$</span>production_budget <span class="sc">/</span> <span class="dv">10</span><span class="sc">^</span><span class="dv">6</span>, <span class="dv">1</span>), <span class="st">&quot;mil.&quot;</span>),</span>
+<span id="cb17-67"><a href="#cb17-67" aria-hidden="true" tabindex="-1"></a>      <span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fu">max</span>(top3<span class="sc">$</span>production_budget) <span class="sc">*</span> <span class="fl">1.06</span>)</span>
+<span id="cb17-68"><a href="#cb17-68" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">+</span></span>
+<span id="cb17-69"><a href="#cb17-69" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">panel.grid.major =</span> <span class="fu">element_blank</span>(), <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>()) <span class="sc">+</span></span>
+<span id="cb17-70"><a href="#cb17-70" aria-hidden="true" tabindex="-1"></a>    <span class="fu">coord_cartesian</span>(<span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">10</span><span class="sc">^</span><span class="dv">8</span> <span class="sc">*</span> <span class="fl">1.1</span>, <span class="cn">NA</span>))</span>
+<span id="cb17-71"><a href="#cb17-71" aria-hidden="true" tabindex="-1"></a>  p2</span>
+<span id="cb17-72"><a href="#cb17-72" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb17-73"><a href="#cb17-73" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-74"><a href="#cb17-74" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-75"><a href="#cb17-75" aria-hidden="true" tabindex="-1"></a>panel_3 <span class="ot">&lt;-</span> <span class="cf">function</span>(data) {</span>
+<span id="cb17-76"><a href="#cb17-76" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb17-77"><a href="#cb17-77" aria-hidden="true" tabindex="-1"></a>  xintercepts <span class="ot">&lt;-</span> <span class="fu">as.Date</span>(<span class="fu">c</span>(<span class="st">&quot;1980-01-01&quot;</span>, <span class="st">&quot;1990-01-01&quot;</span>))</span>
+<span id="cb17-78"><a href="#cb17-78" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-79"><a href="#cb17-79" aria-hidden="true" tabindex="-1"></a>  p3 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(data, <span class="fu">aes</span>(release_date, worldwide_gross, <span class="at">color =</span> genre, <span class="at">size =</span> worldwide_gross, <span class="at">alpha =</span> worldwide_gross)) <span class="sc">+</span></span>
+<span id="cb17-80"><a href="#cb17-80" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb17-81"><a href="#cb17-81" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">20</span>, <span class="at">base_family =</span> <span class="st">&quot;Roboto Condensed&quot;</span>) <span class="sc">+</span></span>
+<span id="cb17-82"><a href="#cb17-82" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_color_vapoRwave</span>(<span class="st">&quot;&quot;</span>) <span class="sc">+</span></span>
+<span id="cb17-83"><a href="#cb17-83" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">&quot;none&quot;</span>, <span class="at">panel.grid.major =</span> <span class="fu">element_blank</span>(), <span class="at">plot.margin =</span> <span class="fu">margin</span>(<span class="at">t =</span> <span class="dv">0</span>, <span class="fl">5.5</span>, <span class="at">b =</span> <span class="dv">0</span>, <span class="fl">5.5</span>)) <span class="sc">+</span></span>
+<span id="cb17-84"><a href="#cb17-84" aria-hidden="true" tabindex="-1"></a>    <span class="fu">annotate</span>(</span>
+<span id="cb17-85"><a href="#cb17-85" aria-hidden="true" tabindex="-1"></a>      <span class="at">geom =</span> <span class="st">&quot;rect&quot;</span>, <span class="at">xmin =</span> <span class="fu">as.Date</span>(<span class="st">&quot;1980-01-01&quot;</span>), <span class="at">xmax =</span> <span class="fu">as.Date</span>(<span class="st">&quot;1990-01-01&quot;</span>),</span>
+<span id="cb17-86"><a href="#cb17-86" aria-hidden="true" tabindex="-1"></a>      <span class="at">ymin =</span> <span class="sc">-</span><span class="cn">Inf</span>, <span class="at">ymax =</span> <span class="cn">Inf</span>, <span class="at">fill =</span> <span class="st">&quot;black&quot;</span>, <span class="at">alpha =</span> <span class="fl">0.05</span></span>
+<span id="cb17-87"><a href="#cb17-87" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">+</span></span>
+<span id="cb17-88"><a href="#cb17-88" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Worldwide gross&quot;</span>, <span class="at">title =</span> <span class="st">&quot;Wordwide gross of movies&quot;</span>) <span class="sc">+</span></span>
+<span id="cb17-89"><a href="#cb17-89" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_x_date</span>(<span class="at">date_breaks =</span> <span class="st">&quot;1 years&quot;</span>, <span class="at">date_labels =</span> <span class="st">&quot;%Y&quot;</span>) <span class="sc">+</span></span>
+<span id="cb17-90"><a href="#cb17-90" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_alpha</span>(<span class="at">range =</span> <span class="fu">c</span>(<span class="fl">0.5</span>, <span class="dv">1</span>)) <span class="sc">+</span></span>
+<span id="cb17-91"><a href="#cb17-91" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_y_continuous</span>(<span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">5</span>, <span class="dv">10</span>, <span class="dv">15</span>, <span class="dv">20</span>) <span class="sc">*</span> <span class="dv">10</span><span class="sc">^</span><span class="dv">8</span>, <span class="at">labels =</span> <span class="fu">paste</span>(<span class="fu">c</span>(<span class="st">&quot;0&quot;</span>, <span class="st">&quot;0.5&quot;</span>, <span class="st">&quot;1&quot;</span>, <span class="st">&quot;1.5&quot;</span>, <span class="st">&quot;2&quot;</span>), <span class="st">&quot;mlrd.&quot;</span>), <span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">24</span> <span class="sc">*</span> <span class="dv">10</span><span class="sc">^</span><span class="dv">8</span>)) <span class="sc">+</span></span>
+<span id="cb17-92"><a href="#cb17-92" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_vline</span>(<span class="at">data =</span> <span class="fu">as.data.frame</span>(xintercepts), <span class="fu">aes</span>(<span class="at">xintercept =</span> xintercepts)) <span class="sc">+</span></span>
+<span id="cb17-93"><a href="#cb17-93" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_size_area</span>(<span class="at">max_size =</span> <span class="dv">12</span>) <span class="sc">+</span></span>
+<span id="cb17-94"><a href="#cb17-94" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_text_repel</span>(<span class="at">data =</span> <span class="fu">slice_max</span>(data, worldwide_gross, <span class="at">n =</span> <span class="dv">8</span>), <span class="fu">aes</span>(release_date, worldwide_gross, <span class="at">label =</span> movie), <span class="at">inherit.aes =</span> <span class="cn">FALSE</span>, <span class="at">nudge_y =</span> <span class="dv">300000000</span>, <span class="at">min.segment.length =</span> <span class="dv">3</span>, <span class="at">size =</span> <span class="dv">5</span>)</span>
+<span id="cb17-95"><a href="#cb17-95" aria-hidden="true" tabindex="-1"></a>  p3</span>
+<span id="cb17-96"><a href="#cb17-96" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb17-97"><a href="#cb17-97" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-98"><a href="#cb17-98" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-99"><a href="#cb17-99" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-100"><a href="#cb17-100" aria-hidden="true" tabindex="-1"></a>panel_4 <span class="ot">&lt;-</span> <span class="cf">function</span>(data) {</span>
+<span id="cb17-101"><a href="#cb17-101" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb17-102"><a href="#cb17-102" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb17-103"><a href="#cb17-103" aria-hidden="true" tabindex="-1"></a>  xintercepts <span class="ot">&lt;-</span> <span class="fu">as.Date</span>(<span class="fu">c</span>(<span class="st">&quot;1980-01-01&quot;</span>, <span class="st">&quot;1990-01-01&quot;</span>))</span>
+<span id="cb17-104"><a href="#cb17-104" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb17-105"><a href="#cb17-105" aria-hidden="true" tabindex="-1"></a>  p4<span class="ot">&lt;-</span><span class="fu">ggplot</span>(</span>
+<span id="cb17-106"><a href="#cb17-106" aria-hidden="true" tabindex="-1"></a>    data,</span>
+<span id="cb17-107"><a href="#cb17-107" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(release_date, production_budget, <span class="at">color =</span> genre, <span class="at">size =</span> production_budget, <span class="at">alpha =</span> worldwide_gross)</span>
+<span id="cb17-108"><a href="#cb17-108" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb17-109"><a href="#cb17-109" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb17-110"><a href="#cb17-110" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">20</span>, <span class="at">base_family =</span> <span class="st">&quot;Roboto Condensed&quot;</span>) <span class="sc">+</span></span>
+<span id="cb17-111"><a href="#cb17-111" aria-hidden="true" tabindex="-1"></a>    <span class="fu">guides</span>(<span class="at">alpha =</span> <span class="st">&quot;none&quot;</span>, <span class="at">size =</span> <span class="st">&quot;none&quot;</span>) <span class="sc">+</span></span>
+<span id="cb17-112"><a href="#cb17-112" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_color_vapoRwave</span>(<span class="st">&quot;&quot;</span>, <span class="at">guide =</span> <span class="fu">guide_legend</span>(</span>
+<span id="cb17-113"><a href="#cb17-113" aria-hidden="true" tabindex="-1"></a>      <span class="at">keyheight =</span> <span class="fu">unit</span>(<span class="dv">7</span>, <span class="at">units =</span> <span class="st">&quot;mm&quot;</span>),</span>
+<span id="cb17-114"><a href="#cb17-114" aria-hidden="true" tabindex="-1"></a>      <span class="at">keywidth =</span> <span class="fu">unit</span>(<span class="dv">15</span>, <span class="at">units =</span> <span class="st">&quot;mm&quot;</span>),</span>
+<span id="cb17-115"><a href="#cb17-115" aria-hidden="true" tabindex="-1"></a>      <span class="at">label.position =</span> <span class="st">&quot;bottom&quot;</span>, <span class="at">title.position =</span> <span class="st">&quot;top&quot;</span>,</span>
+<span id="cb17-116"><a href="#cb17-116" aria-hidden="true" tabindex="-1"></a>      <span class="at">nrow =</span> <span class="dv">1</span>, <span class="at">title.hjust =</span> <span class="fl">0.5</span>, <span class="at">override.aes =</span> <span class="fu">list</span>(<span class="at">size =</span> <span class="dv">10</span>)</span>
+<span id="cb17-117"><a href="#cb17-117" aria-hidden="true" tabindex="-1"></a>    )) <span class="sc">+</span></span>
+<span id="cb17-118"><a href="#cb17-118" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">&quot;bottom&quot;</span>, <span class="at">panel.grid.major =</span> <span class="fu">element_blank</span>(), <span class="at">plot.margin =</span> <span class="fu">margin</span>(<span class="at">t =</span> <span class="dv">0</span>)) <span class="sc">+</span></span>
+<span id="cb17-119"><a href="#cb17-119" aria-hidden="true" tabindex="-1"></a>    <span class="fu">annotate</span>(</span>
+<span id="cb17-120"><a href="#cb17-120" aria-hidden="true" tabindex="-1"></a>      <span class="at">geom =</span> <span class="st">&quot;rect&quot;</span>, <span class="at">xmin =</span> <span class="fu">as.Date</span>(<span class="st">&quot;1980-01-01&quot;</span>), <span class="at">xmax =</span> <span class="fu">as.Date</span>(<span class="st">&quot;1990-01-01&quot;</span>),</span>
+<span id="cb17-121"><a href="#cb17-121" aria-hidden="true" tabindex="-1"></a>      <span class="at">ymin =</span> <span class="sc">-</span><span class="cn">Inf</span>, <span class="at">ymax =</span> <span class="cn">Inf</span>, <span class="at">fill =</span> <span class="st">&quot;black&quot;</span>, <span class="at">alpha =</span> <span class="fl">0.05</span></span>
+<span id="cb17-122"><a href="#cb17-122" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">+</span></span>
+<span id="cb17-123"><a href="#cb17-123" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Year&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Budget&quot;</span>, <span class="at">title =</span> <span class="st">&quot;Movie budgets&quot;</span>) <span class="sc">+</span></span>
+<span id="cb17-124"><a href="#cb17-124" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_x_date</span>(<span class="at">date_breaks =</span> <span class="st">&quot;1 years&quot;</span>, <span class="at">date_labels =</span> <span class="st">&quot;%Y&quot;</span>) <span class="sc">+</span></span>
+<span id="cb17-125"><a href="#cb17-125" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_alpha</span>(<span class="at">range =</span> <span class="fu">c</span>(<span class="fl">0.5</span>, <span class="dv">1</span>)) <span class="sc">+</span></span>
+<span id="cb17-126"><a href="#cb17-126" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_y_continuous</span>(<span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">0.5</span>, <span class="dv">1</span>, <span class="fl">1.5</span>) <span class="sc">*</span> <span class="dv">10</span><span class="sc">^</span><span class="dv">8</span>, <span class="at">labels =</span> <span class="fu">paste</span>(<span class="fu">c</span>(<span class="st">&quot;0&quot;</span>, <span class="st">&quot;50&quot;</span>, <span class="st">&quot;100&quot;</span>, <span class="st">&quot;150&quot;</span>), <span class="st">&quot;mil.&quot;</span>), <span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">1.7</span> <span class="sc">*</span> <span class="dv">10</span><span class="sc">^</span><span class="dv">8</span>)) <span class="sc">+</span></span>
+<span id="cb17-127"><a href="#cb17-127" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_vline</span>(<span class="at">data =</span> <span class="fu">as.data.frame</span>(xintercepts), <span class="fu">aes</span>(<span class="at">xintercept =</span> xintercepts)) <span class="sc">+</span></span>
+<span id="cb17-128"><a href="#cb17-128" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_size_area</span>(<span class="at">max_size =</span> <span class="dv">8</span>)</span>
+<span id="cb17-129"><a href="#cb17-129" aria-hidden="true" tabindex="-1"></a>  p4</span>
+<span id="cb17-130"><a href="#cb17-130" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 </div>
-<div id="session-info" class="section level1">
-<h1>Session info</h1>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">session_info</span>()</span></code></pre></div>
+<div id="session-info-ℹ" class="section level1">
+<h1>Session info <span class="emoji" data-emoji="information_source">ℹ️</span></h1>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">session_info</span>()</span></code></pre></div>
 <pre><code>## - Session info ---------------------------------------------------------------
 ##  setting  value                       
 ##  version  R version 4.1.0 (2021-05-18)
@@ -644,112 +671,117 @@
 ##  collate  Lithuanian_Lithuania.1257   
 ##  ctype    Lithuanian_Lithuania.1257   
 ##  tz       Europe/Helsinki             
-##  date     2021-09-04                  
+##  date     2021-09-05                  
 ## 
 ## - Packages -------------------------------------------------------------------
-##  package     * version date       lib source        
-##  assertthat    0.2.1   2019-03-21 [1] CRAN (R 4.0.2)
-##  backports     1.2.1   2020-12-09 [1] CRAN (R 4.1.0)
-##  bit           4.0.4   2020-08-04 [1] CRAN (R 4.0.3)
-##  bit64         4.0.5   2020-08-30 [1] CRAN (R 4.0.3)
-##  bookdown      0.22    2021-04-22 [1] CRAN (R 4.1.0)
-##  broom         0.7.8   2021-06-24 [1] CRAN (R 4.1.0)
-##  bslib         0.2.5.1 2021-05-18 [1] CRAN (R 4.0.5)
-##  cachem        1.0.5   2021-05-15 [1] CRAN (R 4.1.0)
-##  callr         3.7.0   2021-04-20 [1] CRAN (R 4.1.0)
-##  cellranger    1.1.0   2016-07-27 [1] CRAN (R 4.0.2)
-##  cli           3.0.1   2021-07-17 [1] CRAN (R 4.0.5)
-##  colorspace    2.0-2   2021-06-24 [1] CRAN (R 4.1.0)
-##  crayon        1.4.1   2021-02-08 [1] CRAN (R 4.0.5)
-##  curl          4.3.2   2021-06-23 [1] CRAN (R 4.1.0)
-##  DBI           1.1.1   2021-01-15 [1] CRAN (R 4.1.0)
-##  dbplyr        2.1.1   2021-04-06 [1] CRAN (R 4.1.0)
-##  desc          1.3.0   2021-03-05 [1] CRAN (R 4.1.0)
-##  devtools      2.4.2   2021-06-07 [1] CRAN (R 4.1.0)
-##  digest        0.6.27  2020-10-24 [1] CRAN (R 4.0.5)
-##  dplyr       * 1.0.7   2021-06-18 [1] CRAN (R 4.0.5)
-##  ellipsis      0.3.2   2021-04-29 [1] CRAN (R 4.0.5)
-##  evaluate      0.14    2019-05-28 [1] CRAN (R 4.0.2)
-##  extrafont     0.17    2014-12-08 [1] CRAN (R 4.0.0)
-##  extrafontdb   1.0     2012-06-11 [1] CRAN (R 4.0.3)
-##  fansi         0.5.0   2021-05-25 [1] CRAN (R 4.0.5)
-##  farver        2.1.0   2021-02-28 [1] CRAN (R 4.1.0)
-##  fastmap       1.1.0   2021-01-25 [1] CRAN (R 4.1.0)
-##  forcats     * 0.5.1   2021-01-27 [1] CRAN (R 4.1.0)
-##  fs            1.5.0   2020-07-31 [1] CRAN (R 4.0.2)
-##  gdtools       0.2.3   2021-01-06 [1] CRAN (R 4.1.0)
-##  generics      0.1.0   2020-10-31 [1] CRAN (R 4.0.3)
-##  ggforce     * 0.3.3   2021-03-05 [1] CRAN (R 4.1.0)
-##  ggplot2     * 3.3.5   2021-06-25 [1] CRAN (R 4.1.0)
-##  ggrepel     * 0.9.1   2021-01-15 [1] CRAN (R 4.0.3)
-##  glue          1.4.2   2020-08-27 [1] CRAN (R 4.0.2)
-##  gsubfn        0.7     2018-03-16 [1] CRAN (R 4.0.4)
-##  gtable        0.3.0   2019-03-25 [1] CRAN (R 4.0.2)
-##  haven         2.4.1   2021-04-23 [1] CRAN (R 4.1.0)
-##  here        * 1.0.1   2020-12-13 [1] CRAN (R 4.1.0)
-##  highr         0.9     2021-04-16 [1] CRAN (R 4.0.5)
-##  hms           1.1.0   2021-05-17 [1] CRAN (R 4.0.5)
-##  hrbrthemes  * 0.8.0   2020-03-06 [1] CRAN (R 4.0.2)
-##  htmltools     0.5.1.1 2021-01-22 [1] CRAN (R 4.0.3)
-##  httr          1.4.2   2020-07-20 [1] CRAN (R 4.0.2)
-##  jquerylib     0.1.4   2021-04-26 [1] CRAN (R 4.1.0)
-##  jsonlite      1.7.2   2020-12-09 [1] CRAN (R 4.0.5)
-##  knitr       * 1.33    2021-04-24 [1] CRAN (R 4.0.5)
-##  labeling      0.4.2   2020-10-20 [1] CRAN (R 4.1.0)
-##  lifecycle     1.0.0   2021-02-15 [1] CRAN (R 4.0.5)
-##  lubridate   * 1.7.10  2021-02-26 [1] CRAN (R 4.1.0)
-##  magrittr      2.0.1   2020-11-17 [1] CRAN (R 4.0.3)
-##  MASS          7.3-54  2021-05-03 [2] CRAN (R 4.1.0)
-##  memoise       2.0.0   2021-01-26 [1] CRAN (R 4.1.0)
-##  modelr        0.1.8   2020-05-19 [1] CRAN (R 4.0.2)
-##  munsell       0.5.0   2018-06-12 [1] CRAN (R 4.0.2)
-##  patchwork   * 1.1.1   2020-12-17 [1] CRAN (R 4.1.0)
-##  pillar        1.6.2   2021-07-29 [1] CRAN (R 4.1.0)
-##  pkgbuild      1.2.0   2020-12-15 [1] CRAN (R 4.1.0)
-##  pkgconfig     2.0.3   2019-09-22 [1] CRAN (R 4.0.2)
-##  pkgload       1.2.1   2021-04-06 [1] CRAN (R 4.1.0)
-##  polyclip      1.10-0  2019-03-14 [1] CRAN (R 4.0.3)
-##  prettyunits   1.1.1   2020-01-24 [1] CRAN (R 4.0.2)
-##  priceR      * 0.1.6   2021-05-25 [1] CRAN (R 4.1.0)
-##  processx      3.5.2   2021-04-30 [1] CRAN (R 4.1.0)
-##  proto         1.0.0   2016-10-29 [1] CRAN (R 4.0.4)
-##  ps            1.6.0   2021-02-28 [1] CRAN (R 4.1.0)
-##  purrr       * 0.3.4   2020-04-17 [1] CRAN (R 4.0.2)
-##  R6            2.5.0   2020-10-28 [1] CRAN (R 4.0.5)
-##  Rcpp          1.0.7   2021-07-07 [1] CRAN (R 4.0.5)
-##  readr       * 2.0.0   2021-07-20 [1] CRAN (R 4.0.5)
-##  readxl        1.3.1   2019-03-13 [1] CRAN (R 4.0.2)
-##  remotes       2.4.0   2021-06-02 [1] CRAN (R 4.1.0)
-##  reprex        2.0.0   2021-04-02 [1] CRAN (R 4.1.0)
-##  rlang         0.4.11  2021-04-30 [1] CRAN (R 4.0.5)
-##  rmarkdown     2.9     2021-06-15 [1] CRAN (R 4.0.5)
-##  rmdformats    1.0.2   2021-04-19 [1] CRAN (R 4.1.0)
-##  rprojroot     2.0.2   2020-11-15 [1] CRAN (R 4.1.0)
-##  rstudioapi    0.13    2020-11-12 [1] CRAN (R 4.0.3)
-##  Rttf2pt1      1.3.9   2021-07-22 [1] CRAN (R 4.1.0)
-##  rvest         1.0.1   2021-07-26 [1] CRAN (R 4.1.0)
-##  sass          0.4.0   2021-05-12 [1] CRAN (R 4.0.5)
-##  scales        1.1.1   2020-05-11 [1] CRAN (R 4.0.2)
-##  sessioninfo   1.1.1   2018-11-05 [1] CRAN (R 4.0.3)
-##  stringi       1.7.3   2021-07-16 [1] CRAN (R 4.1.0)
-##  stringr     * 1.4.0   2019-02-10 [1] CRAN (R 4.0.5)
-##  systemfonts   1.0.2   2021-05-11 [1] CRAN (R 4.1.0)
-##  testthat      3.0.4   2021-07-01 [1] CRAN (R 4.1.0)
-##  tibble      * 3.1.3   2021-07-23 [1] CRAN (R 4.1.0)
-##  tidyr       * 1.1.3   2021-03-03 [1] CRAN (R 4.1.0)
-##  tidyselect    1.1.1   2021-04-30 [1] CRAN (R 4.0.5)
-##  tidyverse   * 1.3.1   2021-04-15 [1] CRAN (R 4.1.0)
-##  tweenr        1.0.2   2021-03-23 [1] CRAN (R 4.1.0)
-##  tzdb          0.1.2   2021-07-20 [1] CRAN (R 4.0.5)
-##  usethis       2.0.1   2021-02-10 [1] CRAN (R 4.0.5)
-##  utf8          1.2.2   2021-07-24 [1] CRAN (R 4.1.0)
-##  vctrs         0.3.8   2021-04-29 [1] CRAN (R 4.0.5)
-##  viridisLite   0.4.0   2021-04-13 [1] CRAN (R 4.1.0)
-##  vroom         1.5.3   2021-07-14 [1] CRAN (R 4.0.5)
-##  withr         2.4.2   2021-04-18 [1] CRAN (R 4.1.0)
-##  xfun          0.24    2021-06-15 [1] CRAN (R 4.0.5)
-##  xml2          1.3.2   2020-04-23 [1] CRAN (R 4.0.3)
-##  yaml          2.2.1   2020-02-01 [1] CRAN (R 4.0.2)
+##  package     * version    date       lib source                            
+##  assertthat    0.2.1      2019-03-21 [1] CRAN (R 4.0.2)                    
+##  backports     1.2.1      2020-12-09 [1] CRAN (R 4.1.0)                    
+##  bit           4.0.4      2020-08-04 [1] CRAN (R 4.0.3)                    
+##  bit64         4.0.5      2020-08-30 [1] CRAN (R 4.0.3)                    
+##  bookdown      0.22       2021-04-22 [1] CRAN (R 4.1.0)                    
+##  broom         0.7.8      2021-06-24 [1] CRAN (R 4.1.0)                    
+##  bslib         0.2.5.1    2021-05-18 [1] CRAN (R 4.0.5)                    
+##  cachem        1.0.5      2021-05-15 [1] CRAN (R 4.1.0)                    
+##  callr         3.7.0      2021-04-20 [1] CRAN (R 4.1.0)                    
+##  cellranger    1.1.0      2016-07-27 [1] CRAN (R 4.0.2)                    
+##  cli           3.0.1      2021-07-17 [1] CRAN (R 4.0.5)                    
+##  colorspace    2.0-2      2021-06-24 [1] CRAN (R 4.1.0)                    
+##  crayon        1.4.1      2021-02-08 [1] CRAN (R 4.0.5)                    
+##  curl          4.3.2      2021-06-23 [1] CRAN (R 4.1.0)                    
+##  DBI           1.1.1      2021-01-15 [1] CRAN (R 4.1.0)                    
+##  dbplyr        2.1.1      2021-04-06 [1] CRAN (R 4.1.0)                    
+##  desc          1.3.0      2021-03-05 [1] CRAN (R 4.1.0)                    
+##  devtools      2.4.2      2021-06-07 [1] CRAN (R 4.1.0)                    
+##  digest        0.6.27     2020-10-24 [1] CRAN (R 4.0.5)                    
+##  dplyr       * 1.0.7      2021-06-18 [1] CRAN (R 4.0.5)                    
+##  ellipsis      0.3.2      2021-04-29 [1] CRAN (R 4.0.5)                    
+##  emo           0.0.0.9000 2020-11-27 [1] Github (hadley/emo@3f03b11)       
+##  evaluate      0.14       2019-05-28 [1] CRAN (R 4.0.2)                    
+##  extrafont     0.17       2014-12-08 [1] CRAN (R 4.0.0)                    
+##  extrafontdb   1.0        2012-06-11 [1] CRAN (R 4.0.3)                    
+##  fansi         0.5.0      2021-05-25 [1] CRAN (R 4.0.5)                    
+##  farver        2.1.0      2021-02-28 [1] CRAN (R 4.1.0)                    
+##  fastmap       1.1.0      2021-01-25 [1] CRAN (R 4.1.0)                    
+##  forcats     * 0.5.1      2021-01-27 [1] CRAN (R 4.1.0)                    
+##  fs            1.5.0      2020-07-31 [1] CRAN (R 4.0.2)                    
+##  gdtools       0.2.3      2021-01-06 [1] CRAN (R 4.1.0)                    
+##  generics      0.1.0      2020-10-31 [1] CRAN (R 4.0.3)                    
+##  ggforce     * 0.3.3      2021-03-05 [1] CRAN (R 4.1.0)                    
+##  ggplot2     * 3.3.5      2021-06-25 [1] CRAN (R 4.1.0)                    
+##  ggrepel     * 0.9.1      2021-01-15 [1] CRAN (R 4.0.3)                    
+##  glue          1.4.2      2020-08-27 [1] CRAN (R 4.0.2)                    
+##  gsubfn        0.7        2018-03-16 [1] CRAN (R 4.0.4)                    
+##  gtable        0.3.0      2019-03-25 [1] CRAN (R 4.0.2)                    
+##  haven         2.4.1      2021-04-23 [1] CRAN (R 4.1.0)                    
+##  here        * 1.0.1      2020-12-13 [1] CRAN (R 4.1.0)                    
+##  highr         0.9        2021-04-16 [1] CRAN (R 4.0.5)                    
+##  hms           1.1.0      2021-05-17 [1] CRAN (R 4.0.5)                    
+##  hrbrthemes  * 0.8.0      2020-03-06 [1] CRAN (R 4.0.2)                    
+##  htmltools     0.5.1.1    2021-01-22 [1] CRAN (R 4.0.3)                    
+##  httr          1.4.2      2020-07-20 [1] CRAN (R 4.0.2)                    
+##  jquerylib     0.1.4      2021-04-26 [1] CRAN (R 4.1.0)                    
+##  jsonlite      1.7.2      2020-12-09 [1] CRAN (R 4.0.5)                    
+##  knitr       * 1.33       2021-04-24 [1] CRAN (R 4.0.5)                    
+##  labeling      0.4.2      2020-10-20 [1] CRAN (R 4.1.0)                    
+##  lifecycle     1.0.0      2021-02-15 [1] CRAN (R 4.0.5)                    
+##  lubridate   * 1.7.10     2021-02-26 [1] CRAN (R 4.1.0)                    
+##  magrittr      2.0.1      2020-11-17 [1] CRAN (R 4.0.3)                    
+##  MASS          7.3-54     2021-05-03 [2] CRAN (R 4.1.0)                    
+##  memoise       2.0.0      2021-01-26 [1] CRAN (R 4.1.0)                    
+##  modelr        0.1.8      2020-05-19 [1] CRAN (R 4.0.2)                    
+##  munsell       0.5.0      2018-06-12 [1] CRAN (R 4.0.2)                    
+##  patchwork   * 1.1.1      2020-12-17 [1] CRAN (R 4.1.0)                    
+##  pillar        1.6.2      2021-07-29 [1] CRAN (R 4.1.0)                    
+##  pkgbuild      1.2.0      2020-12-15 [1] CRAN (R 4.1.0)                    
+##  pkgconfig     2.0.3      2019-09-22 [1] CRAN (R 4.0.2)                    
+##  pkgload       1.2.1      2021-04-06 [1] CRAN (R 4.1.0)                    
+##  polyclip      1.10-0     2019-03-14 [1] CRAN (R 4.0.3)                    
+##  prettyunits   1.1.1      2020-01-24 [1] CRAN (R 4.0.2)                    
+##  priceR      * 0.1.6      2021-05-25 [1] CRAN (R 4.1.0)                    
+##  processx      3.5.2      2021-04-30 [1] CRAN (R 4.1.0)                    
+##  proto         1.0.0      2016-10-29 [1] CRAN (R 4.0.4)                    
+##  ps            1.6.0      2021-02-28 [1] CRAN (R 4.1.0)                    
+##  purrr       * 0.3.4      2020-04-17 [1] CRAN (R 4.0.2)                    
+##  R6            2.5.1      2021-08-19 [1] CRAN (R 4.1.1)                    
+##  ragg        * 1.1.3      2021-06-09 [1] CRAN (R 4.1.0)                    
+##  Rcpp          1.0.7      2021-07-07 [1] CRAN (R 4.0.5)                    
+##  readr       * 2.0.0      2021-07-20 [1] CRAN (R 4.0.5)                    
+##  readxl        1.3.1      2019-03-13 [1] CRAN (R 4.0.2)                    
+##  remotes       2.4.0      2021-06-02 [1] CRAN (R 4.1.0)                    
+##  reprex        2.0.0      2021-04-02 [1] CRAN (R 4.1.0)                    
+##  rlang         0.4.11     2021-04-30 [1] CRAN (R 4.0.5)                    
+##  rmarkdown     2.9        2021-06-15 [1] CRAN (R 4.0.5)                    
+##  rmdformats    1.0.2      2021-04-19 [1] CRAN (R 4.1.0)                    
+##  rprojroot     2.0.2      2020-11-15 [1] CRAN (R 4.1.0)                    
+##  rstudioapi    0.13       2020-11-12 [1] CRAN (R 4.0.3)                    
+##  Rttf2pt1      1.3.9      2021-07-22 [1] CRAN (R 4.1.0)                    
+##  rvest         1.0.1      2021-07-26 [1] CRAN (R 4.1.0)                    
+##  sass          0.4.0      2021-05-12 [1] CRAN (R 4.0.5)                    
+##  scales        1.1.1      2020-05-11 [1] CRAN (R 4.0.2)                    
+##  sessioninfo   1.1.1      2018-11-05 [1] CRAN (R 4.0.3)                    
+##  stringi       1.7.4      2021-08-25 [1] CRAN (R 4.1.1)                    
+##  stringr     * 1.4.0      2019-02-10 [1] CRAN (R 4.0.5)                    
+##  svglite     * 2.0.0      2021-02-20 [1] CRAN (R 4.1.0)                    
+##  systemfonts   1.0.2      2021-05-11 [1] CRAN (R 4.1.0)                    
+##  testthat      3.0.4      2021-07-01 [1] CRAN (R 4.1.0)                    
+##  textshaping   0.3.5      2021-06-09 [1] CRAN (R 4.1.0)                    
+##  tibble      * 3.1.4      2021-08-25 [1] CRAN (R 4.1.1)                    
+##  tidyr       * 1.1.3      2021-03-03 [1] CRAN (R 4.1.0)                    
+##  tidyselect    1.1.1      2021-04-30 [1] CRAN (R 4.0.5)                    
+##  tidyverse   * 1.3.1      2021-04-15 [1] CRAN (R 4.1.0)                    
+##  tweenr        1.0.2      2021-03-23 [1] CRAN (R 4.1.0)                    
+##  tzdb          0.1.2      2021-07-20 [1] CRAN (R 4.0.5)                    
+##  usethis       2.0.1      2021-02-10 [1] CRAN (R 4.0.5)                    
+##  utf8          1.2.2      2021-07-24 [1] CRAN (R 4.1.0)                    
+##  vapoRwave   * 0.0.0.9000 2021-09-05 [1] Github (moldach/vapoRwave@a1d336e)
+##  vctrs         0.3.8      2021-04-29 [1] CRAN (R 4.0.5)                    
+##  viridisLite   0.4.0      2021-04-13 [1] CRAN (R 4.1.0)                    
+##  vroom         1.5.3      2021-07-14 [1] CRAN (R 4.0.5)                    
+##  withr         2.4.2      2021-04-18 [1] CRAN (R 4.1.0)                    
+##  xfun          0.24       2021-06-15 [1] CRAN (R 4.0.5)                    
+##  xml2          1.3.2      2020-04-23 [1] CRAN (R 4.0.3)                    
+##  yaml          2.2.1      2020-02-01 [1] CRAN (R 4.0.2)                    
 ## 
 ## [1] C:/Users/dovyd/Documents/R/win-library/4.1
 ## [2] C:/Program Files/R/R-4.1.0/library</code></pre>
