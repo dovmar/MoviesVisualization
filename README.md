@@ -1,5 +1,7 @@
 ## Goals
 
+<img src="camera.png" align="right" width="140" />
+
 Using data about movies:
 
 - Find and visualize relationship between genres and MPAA ratings.
